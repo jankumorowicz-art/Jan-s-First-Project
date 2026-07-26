@@ -249,6 +249,36 @@ export function ProofPoint({ point, variant = 'published', className = '' }) {
 }
 
 /* ------------------------------------------------------------
+   On-the-record voices and named validation
+   ------------------------------------------------------------ */
+
+export function QuoteCard({ voice }) {
+  return (
+    <div className="rounded-2xl border border-gray-200 bg-white p-5 flex flex-col">
+      <Icon name="sparkles" className="w-5 h-5 text-blue-500 mb-3" />
+      <p className="text-[15px] text-gray-700 leading-relaxed mb-4">"{voice.quote}"</p>
+      <div className="mt-auto flex items-end justify-between gap-3 flex-wrap">
+        <div>
+          <div className="text-sm font-semibold text-gray-900">{voice.name}</div>
+          <div className="text-xs text-gray-500">{voice.role}</div>
+        </div>
+        <SourceLink source={voice.source} />
+      </div>
+    </div>
+  )
+}
+
+export function ValidationCard({ item }) {
+  return (
+    <div className="rounded-xl border border-gray-200 bg-white p-4 flex flex-col">
+      <div className="font-semibold text-gray-900 text-sm mb-1">{item.label}</div>
+      <p className="text-[13px] text-gray-500 leading-snug mb-3">{item.detail}</p>
+      <div className="mt-auto"><SourceLink source={item.source} /></div>
+    </div>
+  )
+}
+
+/* ------------------------------------------------------------
    Talk track: the 3 lines to say out loud on this comparison
    ------------------------------------------------------------ */
 

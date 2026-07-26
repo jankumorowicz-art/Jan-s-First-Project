@@ -49,7 +49,7 @@ export default function MaturityJourney() {
           <span className="inline-flex items-center gap-1 self-start rounded-full bg-blue-600 text-white px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide mb-2">
             Where teams land
           </span>
-          <div className="font-bold text-gray-900 text-base leading-tight mb-1">Tavily web layer</div>
+          <div className="font-bold text-gray-900 text-base leading-tight mb-1">Tavily agentic search</div>
           <p className="text-[12px] text-gray-600 leading-snug mb-3">
             Search, Extract, Crawl, and Map behind one API. Retrieval becomes a dependency you call, not a
             platform you staff.

@@ -7,10 +7,6 @@ import TavilySearch from '../tavily/TavilySearch'
 import DiySearchPipeline from '../diy/DiySearchPipeline'
 import TavilyExtract from '../tavily/TavilyExtract'
 import DiyExtraction from '../diy/DiyExtraction'
-import TavilyReliability from '../tavily/TavilyReliability'
-import DiyReliability from '../diy/DiyReliability'
-import TavilySecurity from '../tavily/TavilySecurity'
-import DiySecurity from '../diy/DiySecurity'
 import TavilyIntegration from '../tavily/TavilyIntegration'
 import DiyIntegration from '../diy/DiyIntegration'
 import TokenMath from '../viz/TokenMath'
@@ -23,8 +19,6 @@ const phases = [
   { key: 'search', label: 'Search' },
   { key: 'pages', label: 'Reading pages' },
   { key: 'fresh', label: 'Stale or good?' },
-  { key: 'alive', label: 'Keeping it alive' },
-  { key: 'audit', label: 'The audit' },
   { key: 'wiring', label: 'Agent wiring' },
   { key: 'tokens', label: 'The token bill' },
 ]
@@ -33,8 +27,6 @@ const phaseDescs = {
   search: 'What one question costs in each world: the payloads, and the pipeline behind them.',
   pages: 'Search finds links. Something still has to render, clean, and read the pages, and at site scale that something is a crawler.',
   fresh: 'The quiet failure mode: nothing crashes when content is stale, junk, or duplicated. Someone has to decide what is good.',
-  alive: 'Proxies get banned, quotas exhaust, sites redesign. Who carries the pager, and what does reliability look like as a product guarantee.',
-  audit: 'Retention, third parties, credentials, patching: whoever owns the stack owns the security review.',
   wiring: 'A pipeline is not a tool. The MCP server and framework wrappers your agent actually calls have to come from somewhere.',
   tokens: 'Markup the model never needed is still billed at your input rate. Model the gap with your own assumptions.',
 }
@@ -46,8 +38,8 @@ export default function VsDiy() {
     <div>
       <ModuleHeader
         eyebrow="Build vs. buy · 01"
-        title="vs. the DIY stack"
-        intro="SERP APIs, DuckDuckGo endpoints, and other open APIs are cheap to call and honest about what they are: link lists. The real cost is the stack you maintain around them: fetching, rendering, parsing, deciding what is stale or good, and keeping it all alive. Walk the phases; each one is a standing commitment."
+        title="vs. SERP APIs & the DIY stack"
+        intro="SERP APIs, DuckDuckGo endpoints, and other open APIs are cheap to call and honest about what they are: link lists. The real cost is the stack you maintain around them: fetching, rendering, parsing, and deciding what is stale or good. Walk the phases; each one is a standing commitment. Who keeps it all alive, and who passes the audit, gets its own tab: Security & Scale."
       />
 
       <div className="flex gap-2 flex-wrap mb-3">
@@ -84,20 +76,6 @@ export default function VsDiy() {
             />
           )}
           {phase === 'fresh' && <FreshnessQuality />}
-          {phase === 'alive' && (
-            <DiyTavilyToggle
-              tavily={<TavilyReliability />}
-              diy={<DiyReliability />}
-              note="Switch to walk through the incidents a self-built stack owns."
-            />
-          )}
-          {phase === 'audit' && (
-            <DiyTavilyToggle
-              tavily={<TavilySecurity />}
-              diy={<DiySecurity />}
-              note="Same review questions. Switch to see who has to produce the answers."
-            />
-          )}
           {phase === 'wiring' && (
             <DiyTavilyToggle
               tavily={<TavilyIntegration />}

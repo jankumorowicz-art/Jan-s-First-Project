@@ -1,5 +1,5 @@
-import { ProofPoint, Icon, SourceLink } from '../ui'
-import { proofPoints, independentPoints, totalOwnedComponents, sources } from '../../data/claims'
+import { ProofPoint, Icon, SourceLink, QuoteCard } from '../ui'
+import { proofPoints, independentPoints, totalOwnedComponents, sources, voices } from '../../data/claims'
 import WebLayerMap from '../viz/WebLayerMap'
 import MaturityJourney from '../viz/MaturityJourney'
 import FeatureMatrix from '../viz/FeatureMatrix'
@@ -10,23 +10,30 @@ const roads = [
   {
     tab: 'diy',
     framing: 'Build vs. buy',
-    title: 'A DIY stack',
+    title: 'SERP APIs & DIY',
     desc: 'A SERP API or DuckDuckGo call plus the fetchers, parsers, freshness checks, and on-call you maintain around it.',
     icon: 'wrench',
   },
   {
     tab: 'native',
     framing: 'Replace what is already there',
-    title: 'Model-native search',
+    title: 'Model built-in search',
     desc: 'ChatGPT, Gemini, and Claude already search. Enough for chat in one ecosystem; closed and model-bound beyond it.',
     icon: 'sparkles',
   },
   {
     tab: 'searchapis',
     framing: 'Buy vs. buy',
-    title: 'Other search APIs',
-    desc: 'Brave and You.com answer with links and snippets; agent-native ones come down to an eval on your own queries.',
+    title: 'Legacy search APIs',
+    desc: 'Brave and You.com answer with links and snippets built for results pages; agentic peers come down to an eval on your queries.',
     icon: 'search',
+  },
+  {
+    tab: 'trust',
+    framing: 'Before all of it',
+    title: 'Security & Scale',
+    desc: 'The two questions that come first in any enterprise room: can it carry production, and will it pass the review.',
+    icon: 'shield',
   },
 ]
 
@@ -40,13 +47,14 @@ export default function Overview({ onNavigate }) {
         <p className="text-lg text-gray-500">
           Any capable model can decide it needs the web. What is hard is everything between that decision and
           grounded context: search, fetching, extraction, deciding what is stale or good, and keeping it all
-          alive under real traffic. Teams get that layer one of three ways today, and each is a different
+          alive under real traffic. Tavily's category for that layer is agentic search: web access built for
+          agents end to end. Teams get there from three starting points today, and each is a different
           conversation. Some of it is build vs. buy; some of it is replacing what is already there.
         </p>
       </div>
 
-      {/* The three roads, each linking to its comparison */}
-      <div className="grid sm:grid-cols-3 gap-4 mb-10">
+      {/* The roads, each linking to its comparison */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
         {roads.map(r => (
           <button key={r.tab} onClick={() => onNavigate && onNavigate(r.tab)}
             className="rounded-2xl border border-gray-200 bg-white p-5 text-left hover:border-blue-300 hover:shadow-md transition-all duration-200 group">
@@ -113,6 +121,17 @@ export default function Overview({ onNavigate }) {
           <SourceLink source={sources.trust} className="!inline" />
           <SourceLink source={sources.faq} className="!inline" />
         </p>
+      </div>
+
+      {/* On the record */}
+      <div className="mt-10">
+        <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-3">
+          On the record
+        </div>
+        <div className="grid md:grid-cols-2 gap-4">
+          <QuoteCard voice={voices.weiss} />
+          <QuoteCard voice={voices.chernin} />
+        </div>
       </div>
 
       {/* Landscape decision matrix */}

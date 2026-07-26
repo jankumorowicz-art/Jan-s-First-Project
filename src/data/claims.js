@@ -86,7 +86,71 @@ export const sources = {
     title: 'Frequently asked questions, Tavily Docs',
     url: 'https://docs.tavily.com/faq/faq',
   },
+  pillar: {
+    title: 'Tavily announces strategic partnership with Pillar to secure AI web access',
+    url: 'https://www.tavily.com/blog/tavily-partners-with-pillar-to-deliver-enterprise-grade-ai-web-access-with-built-in-security-to-secure-ai-agents-web-access-2',
+  },
 }
+
+// On-the-record voices and named third-party validation. Quotes are verbatim
+// from the linked announcements; validation items are facts a prospect can
+// click through and verify at the named publisher.
+export const externalSources = {
+  ibm: {
+    title: 'IBM and Tavily partner for agentic AI solutions (ibm.com)',
+    url: 'https://www.ibm.com/new/announcements/driving-smarter-data-enrichment-ibm-and-tavily-partner-for-agentic-ai-solutions',
+  },
+  techcrunch: {
+    title: 'Tavily raises $25M to connect AI agents to the web (TechCrunch)',
+    url: 'https://techcrunch.com/2025/08/06/tavily-raises-25m-to-connect-ai-agents-to-the-web/',
+  },
+  insight: {
+    title: 'Tavily raises $25 million to power the internet of agents (Insight Partners)',
+    url: 'https://www.insightpartners.com/ideas/tavily-raises-25-million-to-power-the-internet-of-agents/',
+  },
+  pillarSide: {
+    title: 'Pillar partners with Tavily to secure web access for AI agents (pillar.security)',
+    url: 'https://www.pillar.security/blog/pillar-partners-with-tavily-to-secure-web-access-for-ai-agents',
+  },
+}
+
+export const voices = {
+  weiss: {
+    quote: 'Tavily is on a mission to onboard the next billion AI agents to the web. Agentic search is a multi-billion-dollar opportunity, and we believe the market is poised to grow exponentially as enterprises deploy autonomous AI systems.',
+    name: 'Rotem Weiss',
+    role: 'Founder and CEO, Tavily',
+    source: sources.nebiusNews,
+  },
+  chernin: {
+    quote: 'Tavily is solving a critical part of this stack with agentic search and has proven it with strong developer adoption. This acquisition brings the search layer directly into our stack, so developers can focus on their applications instead of managing multiple vendors.',
+    name: 'Roman Chernin',
+    role: 'Co-founder and Chief Business Officer, Nebius',
+    source: sources.nebiusNews,
+  },
+}
+
+export const validation = [
+  {
+    label: 'Groq, Cohere, MongoDB, Writer',
+    detail: 'named by TechCrunch as companies whose agents run on Tavily',
+    source: externalSources.techcrunch,
+  },
+  {
+    label: 'IBM partnership',
+    detail: 'announced on ibm.com for agentic AI data enrichment',
+    source: externalSources.ibm,
+  },
+  {
+    label: 'Pillar Security partnership',
+    detail: 'security guardrails built into the web access layer',
+    source: sources.pillar,
+  },
+  {
+    label: '$25M raised',
+    detail: 'Series A led by Insight Partners and Alpha Wave Global, before the Nebius acquisition',
+    source: externalSources.insight,
+  },
+]
 
 // Published proof points. Rendered by <ProofPoint> with a "published" label.
 // Scale numbers come from the Nebius announcement post and tavily.com.

@@ -6,12 +6,14 @@ import Overview from './components/modules/Overview'
 import VsDiy from './components/modules/VsDiy'
 import VsNative from './components/modules/VsNative'
 import VsSearchApis from './components/modules/VsSearchApis'
+import SecurityScale from './components/modules/SecurityScale'
 
 const tabs = [
   { key: 'overview', label: 'Overview', component: Overview },
-  { key: 'diy', label: 'vs. DIY stack', icon: 'wrench', component: VsDiy },
-  { key: 'native', label: 'vs. Model-native search', icon: 'sparkles', component: VsNative },
-  { key: 'searchapis', label: 'vs. Search APIs', icon: 'search', component: VsSearchApis },
+  { key: 'diy', label: 'vs. SERP APIs & DIY', icon: 'wrench', component: VsDiy },
+  { key: 'native', label: 'vs. Model built-in', icon: 'sparkles', component: VsNative },
+  { key: 'searchapis', label: 'vs. Legacy search APIs', icon: 'search', component: VsSearchApis },
+  { key: 'trust', label: 'Security & Scale', icon: 'shield', component: SecurityScale },
 ]
 
 const pageTransition = {
@@ -41,7 +43,7 @@ export default function App() {
               Tavily <span className="text-white/40 font-normal">vs.</span> the alternatives
             </h1>
           </button>
-          <p className="text-white/50 text-sm mt-1.5">the web layer for AI agents, compared road by road</p>
+          <p className="text-white/50 text-sm mt-1.5">agentic search, compared with every other way to give agents the web</p>
         </div>
       </div>
 

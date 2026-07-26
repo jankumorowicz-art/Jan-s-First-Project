@@ -53,14 +53,14 @@ export default function VsSearchApis() {
     <div>
       <ModuleHeader
         eyebrow="Buy vs. buy · 03"
-        title="vs. other search APIs"
-        intro="Buying search is not one comparison either. APIs like Brave and You.com differ from Tavily in what comes back: search results built for a results page, versus content built for a context window. Agent-native search APIs differ on quality, and quality talk is benchmark talk that varies by workload. This page makes the what-comes-back argument, and hands you the eval for the rest."
+        title="vs. legacy search APIs"
+        intro="Buying search is not one comparison either. Legacy search APIs like Brave and You.com differ from Tavily in what comes back: results built for a results page, versus content built for a context window. Other agentic search providers differ on quality, and quality talk is benchmark talk that varies by workload. This page makes the what-comes-back argument, and hands you the eval for the rest."
       />
 
       {/* Part 1: search-results APIs */}
       <div className="mb-3">
         <span className="pill pill-diy">part 1</span>
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mt-3 mb-2">Search-results APIs: Brave, You.com</h3>
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mt-3 mb-2">Legacy search APIs: Brave, You.com</h3>
         <p className="text-sm text-gray-500 max-w-3xl mb-5">
           Legitimate products, and this is not about who has an index: Tavily runs its own search infrastructure
           too. The difference is what the API hands your agent. A results API answers "which pages?" with links
@@ -117,21 +117,21 @@ export default function VsSearchApis() {
       {/* Part 2: the agent-native wave */}
       <div className="mt-14 border-t border-gray-200 pt-8 mb-3">
         <span className="pill pill-diy">part 2</span>
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mt-3 mb-2">The agent-native wave</h3>
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mt-3 mb-2">Other agentic search providers</h3>
         <p className="text-sm text-gray-500 max-w-3xl">
-          There is also a newer wave of search APIs built for agents from day one, and you will be asked about
-          them. The honest answer: against those, the comparison comes down to result quality on your workload,
-          and quality is settled by evals, not by a vendor's page. This site publishes no third-party benchmark
-          numbers, and you should distrust any comparison page that does. What belongs here is the eval you
-          should run, and the structural questions that outlive any benchmark.
+          Tavily plays in a category it helped define: agentic search. Other providers play there too, and you
+          will be asked about them. The honest answer: within the category, the comparison comes down to result
+          quality on your workload, and quality is settled by evals, not by a vendor's page. This site publishes
+          no third-party benchmark numbers, and you should distrust any comparison page that does. What belongs
+          here is the eval you should run, and the structural questions that outlive any benchmark.
         </p>
       </div>
 
       <div className="rounded-2xl border border-gray-200 bg-white p-6">
         <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">The bake-off, in six questions</div>
         <p className="text-sm text-gray-500 mb-5">
-          Run any agent-native contender and Tavily through the same six checks. Tavily's side of each check is
-          published and linked; hold every vendor to the same standard.
+          Run any agentic search contender and Tavily through the same six checks. Tavily's side of each check
+          is published and linked; hold every vendor to the same standard.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {bakeoff.map(b => (
@@ -153,7 +153,7 @@ export default function VsSearchApis() {
       </div>
 
       <TalkTrack
-        question="What about the newer agent-search APIs?"
+        question="What about the other agentic search providers?"
         points={[
           'Real category, and quality there is workload-dependent, so we will not argue benchmarks from a slide. Run the eval on your own queries; the free tier of 1,000 monthly credits covers a real test, and we will help you set it up.',
           'Whatever the eval shows, the platform questions remain: one API covering search, extraction, crawling, and mapping, or glue code between vendors; a published record of 300M+ monthly requests at 99.99% uptime; SOC 2 and zero data retention on paper.',

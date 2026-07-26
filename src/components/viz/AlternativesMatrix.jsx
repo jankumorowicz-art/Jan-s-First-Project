@@ -7,9 +7,9 @@ import { Icon } from '../ui'
 
 const columns = [
   { key: 'native', label: 'Built into the model', legend: 'The web search that ships inside ChatGPT, Gemini, or Claude.' },
-  { key: 'searchapi', label: 'Search-results API', legend: 'Brave or You.com style: links, titles, and snippets over an API.' },
+  { key: 'searchapi', label: 'Legacy search API', legend: 'Brave or You.com style: links, titles, and snippets over an API.' },
   { key: 'diy', label: 'Build it yourself', legend: 'A SERP or open API plus your own fetching, parsing, and ops.' },
-  { key: 'tavily', label: 'Tavily', legend: 'A managed web layer: search, extract, crawl, and map, returning agent-ready content.', highlight: true },
+  { key: 'tavily', label: 'Tavily agentic search', legend: 'A managed web layer: search, extract, crawl, and map, returning agent-ready content.', highlight: true },
 ]
 
 // cell: 'yes' | 'partial' | 'build' | 'no'

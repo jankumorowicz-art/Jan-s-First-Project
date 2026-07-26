@@ -4,19 +4,22 @@ An interactive, talk-track-ready walkthrough of how teams give AI agents web
 access, and how each road compares with **Tavily** (Search, Extract, Crawl,
 and Map behind one API).
 
-Tabs, one per alternative:
+Tabs, one per alternative plus the trust layer:
 
-1. **Overview**: the three roads, the maturity journey, published scale proof,
-   and a needs-based decision matrix across all four approaches
-2. **vs. DIY stack** (build vs. buy): SERP APIs, DuckDuckGo, and other open
-   endpoints plus the fetching, parsing, freshness and quality checking,
-   reliability, audit, and agent wiring you maintain around them, in six phases
-3. **vs. Model-native search** (replace what is already there): ChatGPT,
-   Gemini, and Claude built-in search vs. a model-independent web layer
-4. **vs. Search APIs** (buy vs. buy): search-results APIs (Brave, You.com,
-   returning links and snippets) vs. a full web access layer returning
-   agent-ready content, plus an eval framework for agent-native search APIs
+1. **Overview**: the roads, the maturity journey, published scale proof,
+   on-the-record quotes, and a needs-based decision matrix
+2. **vs. SERP APIs & DIY** (build vs. buy): SERP APIs, DuckDuckGo, and other
+   open endpoints plus the fetching, parsing, freshness and quality checking,
+   agent wiring, and token math you own, in five phases
+3. **vs. Model built-in** (replace what is already there): ChatGPT, Gemini,
+   and Claude built-in search vs. a model-independent agentic search layer
+4. **vs. Legacy search APIs** (buy vs. buy): Brave and You.com return links
+   and snippets built for results pages; agentic search returns agent-ready
+   content. Includes an eval framework for other agentic search providers
    (no third-party benchmark numbers, by design)
+5. **Security & Scale**: the published scale record, the reliability and
+   audit walkthroughs both ways, and named, clickable validation (IBM,
+   Pillar, TechCrunch-named customers, Insight Partners)
 
 ## Sourcing rule
 
