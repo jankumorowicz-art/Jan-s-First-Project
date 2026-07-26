@@ -11,7 +11,7 @@ const tabs = [
   { key: 'overview', label: 'Overview', component: Overview },
   { key: 'diy', label: 'vs. DIY stack', icon: 'wrench', component: VsDiy },
   { key: 'native', label: 'vs. Model-native search', icon: 'sparkles', component: VsNative },
-  { key: 'searchapis', label: 'vs. Brave & You.com', icon: 'search', component: VsSearchApis },
+  { key: 'searchapis', label: 'vs. Search APIs', icon: 'search', component: VsSearchApis },
 ]
 
 const pageTransition = {

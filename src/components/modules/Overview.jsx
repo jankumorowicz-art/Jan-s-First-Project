@@ -24,8 +24,8 @@ const roads = [
   {
     tab: 'searchapis',
     framing: 'Buy vs. buy',
-    title: 'Brave / You.com',
-    desc: 'A real index behind an API. It answers "which pages?"; turning pages into agent-ready context stays your job.',
+    title: 'Other search APIs',
+    desc: 'Index-first APIs like Brave and You.com differ on scope; agent-native ones come down to an eval on your own queries.',
     icon: 'search',
   },
 ]

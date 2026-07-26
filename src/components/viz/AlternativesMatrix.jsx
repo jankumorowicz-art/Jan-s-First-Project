@@ -7,7 +7,7 @@ import { Icon } from '../ui'
 
 const columns = [
   { key: 'native', label: 'Model-native search' },
-  { key: 'searchapi', label: 'Search API (Brave, You.com)' },
+  { key: 'searchapi', label: 'Index-first search API' },
   { key: 'diy', label: 'DIY stack' },
   { key: 'tavily', label: 'Tavily', highlight: true },
 ]
