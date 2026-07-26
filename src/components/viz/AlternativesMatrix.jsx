@@ -16,8 +16,8 @@ const columns = [
 const rows = [
   {
     need: 'Grounded answers inside one chat product',
-    cells: { native: 'yes', searchapi: 'build', diy: 'build', tavily: 'yes' },
-    detail: 'Built-in search shines here: inside that provider\'s app or API, grounding is a switch you flip. With a search API or DIY stack you wire retrieval into the model yourself. With Tavily it is one tool call, in whichever model you use.',
+    cells: { native: 'yes', searchapi: 'partial', diy: 'build', tavily: 'yes' },
+    detail: 'Built-in search shines here: inside that provider\'s app, grounding is a switch you flip. A legacy search API gets you results, but wiring them into grounded answers (fetching content, ranking, citing) is your code. With Tavily it is one tool call, in whichever model you use.',
   },
   {
     need: 'Same retrieval across every model you use',

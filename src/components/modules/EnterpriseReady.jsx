@@ -1,20 +1,19 @@
-import { ModuleHeader, DiyTavilyToggle, TalkTrack, ProofPoint, ValidationCard, SourceLink } from '../ui'
+import { ModuleHeader, DiyTavilyToggle, TalkTrack, ProofPoint, ValidationCard, SourceLink, Icon } from '../ui'
 import TavilyReliability from '../tavily/TavilyReliability'
 import DiyReliability from '../diy/DiyReliability'
 import TavilySecurity from '../tavily/TavilySecurity'
 import DiySecurity from '../diy/DiySecurity'
-import { proofPoints, independentPoints, validation, sources } from '../../data/claims'
+import { proofPoints, independentPoints, validation, sources, enterpriseFeatures } from '../../data/claims'
 
-// The trust tab: the two questions every enterprise prospect asks before the
-// product questions. Can it carry production traffic, and will it pass our
-// security review. Everything here is published or named.
+// The enterprise tab: can it carry production traffic, will it pass the
+// security review, and the platform controls that make both answers yes.
 
-export default function SecurityScale() {
+export default function EnterpriseReady() {
   return (
     <div>
       <ModuleHeader
-        eyebrow="The trust layer · 04"
-        title="Security & scale"
+        eyebrow="Enterprise ready · 04"
+        title="Enterprise ready"
         intro="Two questions come before the rest: can this layer carry production traffic, and will it pass a security review. Every answer here is published and linked."
       />
 
@@ -28,6 +27,25 @@ export default function SecurityScale() {
           <ProofPoint point={proofPoints.uptime} />
           <ProofPoint point={proofPoints.latency} />
           <ProofPoint point={proofPoints.developers} />
+        </div>
+      </div>
+
+      {/* Enterprise controls */}
+      <div className="mb-10">
+        <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-3">
+          Enterprise controls, each linked to its Tavily page
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {enterpriseFeatures.map(f => (
+            <div key={f.label} className="rounded-xl border border-blue-200 bg-blue-50/40 p-4 flex flex-col">
+              <span className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center mb-3">
+                <Icon name={f.icon} className="w-4 h-4" />
+              </span>
+              <div className="font-semibold text-gray-900 text-sm mb-1">{f.label}</div>
+              <p className="text-[13px] text-gray-600 leading-relaxed mb-3">{f.detail}</p>
+              <div className="mt-auto"><SourceLink source={f.source} /></div>
+            </div>
+          ))}
         </div>
       </div>
 

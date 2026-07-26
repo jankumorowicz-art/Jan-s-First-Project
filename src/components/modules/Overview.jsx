@@ -29,8 +29,8 @@ const roads = [
   {
     tab: 'trust',
     framing: 'Before all of it',
-    title: 'Security & Scale',
-    desc: 'Can it carry production, and will it pass the security review.',
+    title: 'Enterprise Ready',
+    desc: 'Scale record, SOC 2, zero data retention, safe search, PII filtering, prompt-injection protection.',
     icon: 'shield',
   },
 ]

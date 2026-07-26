@@ -17,9 +17,10 @@ Tabs, one per alternative plus the trust layer:
    and snippets built for results pages; agentic search returns agent-ready
    content. Includes an eval framework for other agentic search providers
    (no third-party benchmark numbers, by design)
-5. **Security & Scale**: the published scale record, the reliability and
-   audit walkthroughs both ways, and named, clickable validation (IBM,
-   Pillar, TechCrunch-named customers, Insight Partners)
+5. **Enterprise Ready**: the published scale record, enterprise controls
+   (SOC 2, zero data retention, safe search, PII filtering, prompt-injection
+   protection with Pillar, EU endpoint), the reliability and audit
+   walkthroughs both ways, and named, clickable validation
 
 ## Sourcing rule
 

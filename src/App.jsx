@@ -6,14 +6,14 @@ import Overview from './components/modules/Overview'
 import VsDiy from './components/modules/VsDiy'
 import VsNative from './components/modules/VsNative'
 import VsSearchApis from './components/modules/VsSearchApis'
-import SecurityScale from './components/modules/SecurityScale'
+import EnterpriseReady from './components/modules/EnterpriseReady'
 
 const tabs = [
   { key: 'overview', label: 'Overview', component: Overview },
   { key: 'diy', label: 'vs. SERP APIs & DIY', icon: 'wrench', component: VsDiy },
   { key: 'native', label: 'vs. Model built-in', icon: 'sparkles', component: VsNative },
   { key: 'searchapis', label: 'vs. Legacy search APIs', icon: 'search', component: VsSearchApis },
-  { key: 'trust', label: 'Security & Scale', icon: 'shield', component: SecurityScale },
+  { key: 'trust', label: 'Enterprise Ready', icon: 'shield', component: EnterpriseReady },
 ]
 
 const pageTransition = {

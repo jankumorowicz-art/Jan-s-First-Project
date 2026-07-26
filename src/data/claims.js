@@ -90,7 +90,56 @@ export const sources = {
     title: 'Tavily announces strategic partnership with Pillar to secure AI web access',
     url: 'https://www.tavily.com/blog/tavily-partners-with-pillar-to-deliver-enterprise-grade-ai-web-access-with-built-in-security-to-secure-ai-agents-web-access-2',
   },
+  enterprise: {
+    title: 'Tavily enterprise solutions',
+    url: 'https://www.tavily.com/enterprise',
+  },
+  euEndpoint: {
+    title: 'Tavily EU endpoint',
+    url: 'https://www.eu.tavily.com/',
+  },
 }
+
+// Enterprise capability cards. Feature descriptions are qualitative and each
+// links to the Tavily page that carries it.
+export const enterpriseFeatures = [
+  {
+    icon: 'lock',
+    label: 'Zero data retention',
+    detail: 'Queries and retrieved content are not retained, documented in the security docs and FAQ.',
+    source: sources.trust,
+  },
+  {
+    icon: 'shield',
+    label: 'SOC 2',
+    detail: 'Compliance documented in the trust docs, giving reviews a standard artifact to work from.',
+    source: sources.trust,
+  },
+  {
+    icon: 'eye',
+    label: 'Safe search',
+    detail: 'An enterprise feature on the Search endpoint that filters adult and unsafe content out of results.',
+    source: sources.searchApi,
+  },
+  {
+    icon: 'file',
+    label: 'PII filtering and blocking',
+    detail: 'Enterprise controls for keeping personally identifiable information out of what reaches your agents.',
+    source: sources.enterprise,
+  },
+  {
+    icon: 'alert',
+    label: 'Prompt-injection protection',
+    detail: 'Guardrails with Pillar Security protect agents from data manipulation, prompt injection, and misinformation in retrieved content.',
+    source: sources.pillar,
+  },
+  {
+    icon: 'globe',
+    label: 'EU endpoint',
+    detail: 'A dedicated European deployment for teams with data residency requirements.',
+    source: sources.euEndpoint,
+  },
+]
 
 // On-the-record voices and named third-party validation. Quotes are verbatim
 // from the linked announcements; validation items are facts a prospect can

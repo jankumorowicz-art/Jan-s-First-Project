@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ModuleHeader, TheJob, DiyTavilyToggle, OwnershipLedger, DiyStrengthCallout, TalkTrack } from '../ui'
 import ResultComparator from '../viz/ResultComparator'
-import FreshnessQuality from '../viz/FreshnessQuality'
 import WebLayerMap from '../viz/WebLayerMap'
+import TavilyFreshness from '../tavily/TavilyFreshness'
+import DiyFreshness from '../diy/DiyFreshness'
 import TavilySearch from '../tavily/TavilySearch'
 import DiySearchPipeline from '../diy/DiySearchPipeline'
 import TavilyExtract from '../tavily/TavilyExtract'
@@ -80,7 +81,13 @@ export default function VsDiy() {
               note="Same pages. Switch to see the fleet that reads them in the DIY world."
             />
           )}
-          {phase === 'fresh' && <FreshnessQuality />}
+          {phase === 'fresh' && (
+            <DiyTavilyToggle
+              tavily={<TavilyFreshness />}
+              diy={<DiyFreshness />}
+              note="Same decision. Switch to see the code that makes it in the DIY world."
+            />
+          )}
           {phase === 'wiring' && (
             <DiyTavilyToggle
               tavily={<TavilyIntegration />}
