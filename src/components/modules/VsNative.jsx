@@ -11,7 +11,7 @@ export default function VsNative() {
       <ModuleHeader
         eyebrow="Replace what is already there · 02"
         title="vs. the model's built-in search"
-        intro="ChatGPT, Gemini, and Claude already search the web, in their apps and through their APIs. So this comparison is not build vs. buy, it is about what you get by owning the web layer instead of renting the one welded to your model."
+        intro="ChatGPT, Gemini, and Claude already search the web. The question is what you get by owning the web layer instead of renting the one welded to your model."
       />
 
       <SplitCompare>

@@ -54,18 +54,16 @@ export default function VsSearchApis() {
       <ModuleHeader
         eyebrow="Buy vs. buy · 03"
         title="vs. legacy search APIs"
-        intro="Buying search is not one comparison either. Legacy search APIs like Brave and You.com differ from Tavily in what comes back: results built for a results page, versus content built for a context window. Other agentic search providers differ on quality, and quality talk is benchmark talk that varies by workload. This page makes the what-comes-back argument, and hands you the eval for the rest."
+        intro="Legacy search APIs like Brave and You.com differ from Tavily in what comes back: results built for a results page, versus content built for a context window. Other agentic search providers differ on quality, which only an eval on your own queries can settle."
       />
 
-      {/* Part 1: search-results APIs */}
+      {/* Legacy search APIs */}
       <div className="mb-3">
-        <span className="pill pill-diy">part 1</span>
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mt-3 mb-2">Legacy search APIs: Brave, You.com</h3>
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Legacy search APIs: Brave, You.com</h3>
         <p className="text-sm text-gray-500 max-w-3xl mb-5">
-          Legitimate products, and this is not about who has an index: Tavily runs its own search infrastructure
-          too. The difference is what the API hands your agent. A results API answers "which pages?" with links
-          and snippets. An agent needs "give me the content, ranked for my question", and closing that gap
-          yourself is most of the DIY tab.
+          This is not about who has an index; Tavily runs its own. The difference is what the API hands your
+          agent: links and snippets, or ranked, extracted content. Closing that gap yourself is most of the DIY
+          tab.
         </p>
       </div>
 
@@ -114,16 +112,13 @@ export default function VsSearchApis() {
         ]}
       />
 
-      {/* Part 2: the agent-native wave */}
+      {/* Other agentic search providers */}
       <div className="mt-14 border-t border-gray-200 pt-8 mb-3">
-        <span className="pill pill-diy">part 2</span>
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mt-3 mb-2">Other agentic search providers</h3>
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Other agentic search providers</h3>
         <p className="text-sm text-gray-500 max-w-3xl">
-          Tavily plays in a category it helped define: agentic search. Other providers play there too, and you
-          will be asked about them. The honest answer: within the category, the comparison comes down to result
-          quality on your workload, and quality is settled by evals, not by a vendor's page. This site publishes
-          no third-party benchmark numbers, and you should distrust any comparison page that does. What belongs
-          here is the eval you should run, and the structural questions that outlive any benchmark.
+          Tavily helped define this category, and others play in it too. Within the category the comparison is
+          result quality on your workload, which is settled by evals, not by a vendor's page. This site
+          publishes no third-party benchmarks; here is the eval to run instead.
         </p>
       </div>
 

@@ -61,9 +61,8 @@ export default function AlternativesMatrix() {
       <div className="p-6 pb-4">
         <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">Pick your need, read across</div>
         <p className="text-sm text-gray-500 mb-4">
-          Four ways to give an agent the web, compared by mechanism and ownership. Click a row for the reasoning.
-          Provider capabilities evolve, so treat the third-party columns as the shape of each approach, not a spec
-          sheet, and check current docs before deciding.
+          Four ways to give an agent the web, compared by mechanism and ownership. Click a row for the
+          reasoning; provider capabilities evolve, so check current docs before deciding.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {columns.map(c => (

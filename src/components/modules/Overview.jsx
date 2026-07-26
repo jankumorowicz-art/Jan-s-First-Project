@@ -1,38 +1,36 @@
 import { ProofPoint, Icon, SourceLink, QuoteCard } from '../ui'
-import { proofPoints, independentPoints, totalOwnedComponents, sources, voices } from '../../data/claims'
-import WebLayerMap from '../viz/WebLayerMap'
+import { proofPoints, sources, voices } from '../../data/claims'
 import MaturityJourney from '../viz/MaturityJourney'
-import FeatureMatrix from '../viz/FeatureMatrix'
 import AlternativesMatrix from '../viz/AlternativesMatrix'
 
-// The three roads teams are actually on, each linking to its comparison tab.
+// The four roads, each linking to its comparison tab.
 const roads = [
   {
     tab: 'diy',
     framing: 'Build vs. buy',
     title: 'SERP APIs & DIY',
-    desc: 'A SERP API or DuckDuckGo call plus the fetchers, parsers, freshness checks, and on-call you maintain around it.',
+    desc: 'A SERP or DuckDuckGo call plus the fetchers, parsers, and on-call you maintain around it.',
     icon: 'wrench',
   },
   {
     tab: 'native',
     framing: 'Replace what is already there',
     title: 'Model built-in search',
-    desc: 'ChatGPT, Gemini, and Claude already search. Enough for chat in one ecosystem; closed and model-bound beyond it.',
+    desc: 'ChatGPT, Gemini, and Claude already search. Enough for chat in one ecosystem.',
     icon: 'sparkles',
   },
   {
     tab: 'searchapis',
     framing: 'Buy vs. buy',
     title: 'Legacy search APIs',
-    desc: 'Brave and You.com answer with links and snippets built for results pages; agentic peers come down to an eval on your queries.',
+    desc: 'Brave and You.com answer with links and snippets built for results pages.',
     icon: 'search',
   },
   {
     tab: 'trust',
     framing: 'Before all of it',
     title: 'Security & Scale',
-    desc: 'The two questions that come first in any enterprise room: can it carry production, and will it pass the review.',
+    desc: 'Can it carry production, and will it pass the security review.',
     icon: 'shield',
   },
 ]
@@ -45,11 +43,9 @@ export default function Overview({ onNavigate }) {
         <div className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Overview</div>
         <h2 className="mb-4">Your agent is the easy part.</h2>
         <p className="text-lg text-gray-500">
-          Any capable model can decide it needs the web. What is hard is everything between that decision and
-          grounded context: search, fetching, extraction, deciding what is stale or good, and keeping it all
-          alive under real traffic. Tavily's category for that layer is agentic search: web access built for
-          agents end to end. Teams get there from three starting points today, and each is a different
-          conversation. Some of it is build vs. buy; some of it is replacing what is already there.
+          Everything between "the agent needs the web" and grounded context is the web layer: search, fetching,
+          extraction, freshness, uptime. Tavily's category for that layer is agentic search. Pick the comparison
+          your team is actually facing.
         </p>
       </div>
 
@@ -73,36 +69,8 @@ export default function Overview({ onNavigate }) {
         ))}
       </div>
 
-      {/* Interactive web-layer hero */}
-      <WebLayerMap />
-
-      <p className="mt-6 text-[15px] text-gray-600 max-w-3xl">
-        The DIY tab keeps a ledger of {totalOwnedComponents} standing components you would build and operate
-        yourself. Added up, that is less a feature to ship than a platform-engineering commitment, with real
-        headcount behind it, and when it breaks at 2am there is no vendor SLA behind the fix.
-      </p>
-
       {/* Maturity journey */}
-      <div className="mt-10">
-        <MaturityJourney />
-      </div>
-
-      {/* The problem, sized by independent studies */}
-      <div className="mt-10">
-        <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-3">
-          The problem, sized by independent studies
-        </div>
-        <div className="grid sm:grid-cols-3 gap-4">
-          <ProofPoint point={independentPoints.botTraffic} variant="independent" />
-          <ProofPoint point={independentPoints.proxySpend} variant="independent" />
-          <ProofPoint point={independentPoints.citations} variant="independent" />
-        </div>
-        <p className="text-xs text-gray-400 mt-3">
-          Independent studies size the problem space; they are not claims about Tavily or any competitor. The
-          other big line item, token consumption, has no honest industry number, so the DIY tab has a calculator
-          that models it from your own assumptions, calibrated by the Web Almanac's page-weight data.
-        </p>
-      </div>
+      <MaturityJourney />
 
       {/* Published scale proof */}
       <div className="mt-10">
@@ -119,7 +87,6 @@ export default function Overview({ onNavigate }) {
           <Icon name="shield" className="w-3.5 h-3.5 text-blue-500" />
           Tavily also documents SOC 2 compliance and zero data retention.
           <SourceLink source={sources.trust} className="!inline" />
-          <SourceLink source={sources.faq} className="!inline" />
         </p>
       </div>
 
@@ -137,11 +104,6 @@ export default function Overview({ onNavigate }) {
       {/* Landscape decision matrix */}
       <div className="mt-10">
         <AlternativesMatrix />
-      </div>
-
-      {/* Capability comparison */}
-      <div className="mt-10">
-        <FeatureMatrix />
       </div>
     </div>
   )

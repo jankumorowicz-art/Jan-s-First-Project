@@ -101,12 +101,8 @@ export const externalSources = {
     url: 'https://www.ibm.com/new/announcements/driving-smarter-data-enrichment-ibm-and-tavily-partner-for-agentic-ai-solutions',
   },
   techcrunch: {
-    title: 'Tavily raises $25M to connect AI agents to the web (TechCrunch)',
+    title: 'TechCrunch coverage of Tavily, August 2025',
     url: 'https://techcrunch.com/2025/08/06/tavily-raises-25m-to-connect-ai-agents-to-the-web/',
-  },
-  insight: {
-    title: 'Tavily raises $25 million to power the internet of agents (Insight Partners)',
-    url: 'https://www.insightpartners.com/ideas/tavily-raises-25-million-to-power-the-internet-of-agents/',
   },
   pillarSide: {
     title: 'Pillar partners with Tavily to secure web access for AI agents (pillar.security)',
@@ -146,9 +142,9 @@ export const validation = [
     source: sources.pillar,
   },
   {
-    label: '$25M raised',
-    detail: 'Series A led by Insight Partners and Alpha Wave Global, before the Nebius acquisition',
-    source: externalSources.insight,
+    label: 'Part of Nebius',
+    detail: 'the AI infrastructure company acquired Tavily to make agentic search part of its platform',
+    source: sources.nebiusNews,
   },
 ]
 
@@ -261,47 +257,47 @@ export const ledger = {
   diy: [
     {
       label: 'The search contract',
-      work: 'Pick and integrate a SERP provider, DuckDuckGo endpoints, or another open API; learn its query syntax and schema; and live with quotas, terms, and result shapes designed for humans reading link lists, not agents consuming content.',
+      work: 'Pick a SERP provider or open endpoint, learn its query syntax and schema, and live with quotas, terms, and results designed for humans reading link lists.',
       tavily: 'One Search API designed for agents, with content included in the response.',
     },
     {
       label: 'Fetching and access',
-      work: 'A search result is a link. Getting the page behind it means HTTP clients, redirects, timeouts, proxy pools, IP rotation, user-agent games, and a CAPTCHA-solving service, in a permanent arms race with site defenses.',
+      work: 'Turning links into pages means HTTP clients, redirects, timeouts, proxy pools, IP rotation, and CAPTCHA solving, in a permanent arms race with site defenses.',
       tavily: 'Access and retrieval happen behind the endpoint.',
     },
     {
       label: 'Rendering and parsing',
-      work: 'JavaScript-heavy pages need a headless browser fleet you provision and patch. Every content type needs a cleaning path, and per-site parsers rot silently as sites redesign.',
+      work: 'JavaScript-heavy pages need a headless browser fleet you patch and scale, and per-site parsers rot silently as sites redesign.',
       tavily: 'Extract returns clean markdown or text from any URLs, with rendering handled.',
     },
     {
       label: 'Crawling at site scale',
-      work: 'Frontier logic, dedupe, depth limits, robots.txt, politeness delays, and loop guards: a real crawler is a distributed system you operate, not a for-loop.',
+      work: 'Frontier logic, dedupe, robots.txt, politeness, and loop guards: a real crawler is a distributed system, not a for-loop.',
       tavily: 'Crawl and Map traverse sites graph-style with extraction built in.',
     },
     {
       label: 'Freshness and quality control',
-      work: 'Nothing tells you a cached page is stale, a source is low quality, or six results are the same syndicated article. You build date detection, authority scoring, dedupe, and re-fetch cadences, and fund the compute behind them.',
+      work: 'Stale pages, junk sources, and syndicated duplicates degrade answers without throwing errors. Date detection, quality scoring, and dedupe are your code.',
       tavily: 'Freshness controls (topic, time_range) and a relevance score per result are API parameters.',
     },
     {
       label: 'Relevance and packing',
-      work: 'Search rank optimizes clicks, not answers. You add and host a re-ranker, then write the logic that packs content into a token budget without cutting mid-sentence.',
+      work: 'Search rank optimizes clicks, not answers. A re-ranker and token-budget packing logic are yours to host and tune.',
       tavily: 'Results arrive scored for the query and shaped for a context window.',
     },
     {
       label: 'Reliability operations',
-      work: 'Dashboards for success rate, latency, and ban rate per provider; retries, queues, and backpressure; an on-call rotation; and four vendor invoices with no single lever to optimize.',
+      work: 'Success-rate dashboards, retries, backpressure, an on-call rotation, and four vendor invoices with no single lever to optimize.',
       tavily: 'One credit-metered contract, with the infrastructure operated and monitored by Tavily.',
     },
     {
       label: 'Compliance and security',
-      work: 'Retention policy for fetched content, a keyring of vendor credentials to rotate, patching for browsers and parsers, and the audit story for all of it, owned by your team.',
+      work: 'Retention policy for fetched content, a keyring of vendor credentials, patching, and the audit story, all owned by your team.',
       tavily: 'SOC 2 and zero data retention documented by the vendor, one key to manage.',
     },
     {
       label: 'Agent wiring',
-      work: 'Tool schemas per framework, an MCP server you write and host, output shaping per consumer, and SDK upkeep for every internal team that touches the pipeline.',
+      work: 'Tool schemas per framework, an MCP server you write and host, and SDK upkeep for every internal consumer.',
       tavily: 'A hosted MCP server plus official LangChain and LlamaIndex integrations.',
     },
   ],

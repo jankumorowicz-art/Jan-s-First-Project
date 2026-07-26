@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ModuleHeader, TheJob, DiyTavilyToggle, OwnershipLedger, DiyStrengthCallout, TalkTrack, ProofPoint } from '../ui'
+import { ModuleHeader, TheJob, DiyTavilyToggle, OwnershipLedger, DiyStrengthCallout, TalkTrack } from '../ui'
 import ResultComparator from '../viz/ResultComparator'
 import FreshnessQuality from '../viz/FreshnessQuality'
+import WebLayerMap from '../viz/WebLayerMap'
 import TavilySearch from '../tavily/TavilySearch'
 import DiySearchPipeline from '../diy/DiySearchPipeline'
 import TavilyExtract from '../tavily/TavilyExtract'
@@ -10,7 +11,7 @@ import DiyExtraction from '../diy/DiyExtraction'
 import TavilyIntegration from '../tavily/TavilyIntegration'
 import DiyIntegration from '../diy/DiyIntegration'
 import TokenMath from '../viz/TokenMath'
-import { ledger, independentPoints } from '../../data/claims'
+import { ledger } from '../../data/claims'
 
 // One tab for the whole build-vs-buy argument: the SERP/DuckDuckGo call is
 // step one of a stack, and each phase below is a piece of that stack.
@@ -39,8 +40,12 @@ export default function VsDiy() {
       <ModuleHeader
         eyebrow="Build vs. buy · 01"
         title="vs. SERP APIs & the DIY stack"
-        intro="SERP APIs, DuckDuckGo endpoints, and other open APIs are cheap to call and honest about what they are: link lists. The real cost is the stack you maintain around them: fetching, rendering, parsing, and deciding what is stale or good. Walk the phases; each one is a standing commitment. Who keeps it all alive, and who passes the audit, gets its own tab: Security & Scale."
+        intro="A SERP or DuckDuckGo call is cheap. The stack you maintain around it is not. Walk the phases; each one is a standing commitment."
       />
+
+      <div className="mb-8">
+        <WebLayerMap />
+      </div>
 
       <div className="flex gap-2 flex-wrap mb-3">
         {phases.map(p => (
@@ -94,20 +99,6 @@ export default function VsDiy() {
         </TheJob>
 
         <OwnershipLedger items={ledger.diy} title="The DIY stack, as a ledger" />
-
-        <div className="mt-8">
-          <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">The arms race, in the public record</div>
-          <p className="text-sm text-gray-500 mb-4 max-w-3xl">
-            This is not a static engineering problem you solve once. The web is now majority automated traffic,
-            sites defend against it harder every year, and the people who run scraping stacks for a living
-            report their costs rising because of it.
-          </p>
-          <div className="grid sm:grid-cols-3 gap-4">
-            <ProofPoint point={independentPoints.botTraffic} variant="independent" />
-            <ProofPoint point={independentPoints.proxyUsage} variant="independent" />
-            <ProofPoint point={independentPoints.proxySpend} variant="independent" />
-          </div>
-        </div>
 
         <TalkTrack
           question="A SERP key is $50 a month, why pay for a web layer?"
