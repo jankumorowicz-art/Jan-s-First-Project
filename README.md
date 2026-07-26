@@ -13,8 +13,9 @@ Tabs, one per alternative:
    reliability, audit, and agent wiring you maintain around them, in six phases
 3. **vs. Model-native search** (replace what is already there): ChatGPT,
    Gemini, and Claude built-in search vs. a model-independent web layer
-4. **vs. Search APIs** (buy vs. buy): index-first APIs (Brave, You.com) vs. a
-   full web access layer, plus an eval framework for agent-native search APIs
+4. **vs. Search APIs** (buy vs. buy): search-results APIs (Brave, You.com,
+   returning links and snippets) vs. a full web access layer returning
+   agent-ready content, plus an eval framework for agent-native search APIs
    (no third-party benchmark numbers, by design)
 
 ## Sourcing rule

@@ -1,10 +1,13 @@
 import { ModuleHeader, SplitCompare, ComparePanel, FeatureList, DiyStrengthCallout, TalkTrack, SourceLink, ProofPoint, Icon } from '../ui'
 import { sources, proofPoints } from '../../data/claims'
 
-// Buy vs. buy, in two honest parts: index-first APIs (Brave, You.com) where
-// the difference is scope, and the agent-native wave where quality talk is
-// benchmark talk. This site publishes no third-party benchmarks, so that
-// section hands the reader an eval framework instead of a claim.
+// Buy vs. buy, in two honest parts: search-results APIs (Brave, You.com)
+// where the difference is what comes back to the agent, and the agent-native
+// wave where quality talk is benchmark talk. This site publishes no
+// third-party benchmarks, so that section hands the reader an eval framework
+// instead of a claim. Note: the axis is NOT who has an index (Tavily runs
+// its own); it is results built for a search page vs content built for a
+// context window.
 
 const bakeoff = [
   {
@@ -51,37 +54,38 @@ export default function VsSearchApis() {
       <ModuleHeader
         eyebrow="Buy vs. buy · 03"
         title="vs. other search APIs"
-        intro="Buying search is not one comparison either. Index-first APIs like Brave and You.com differ from Tavily in scope: what the purchase covers. Agent-native search APIs differ on quality, and quality talk is benchmark talk that varies by workload. This page makes the scope argument, and hands you the eval for the rest."
+        intro="Buying search is not one comparison either. APIs like Brave and You.com differ from Tavily in what comes back: search results built for a results page, versus content built for a context window. Agent-native search APIs differ on quality, and quality talk is benchmark talk that varies by workload. This page makes the what-comes-back argument, and hands you the eval for the rest."
       />
 
-      {/* Part 1: index-first APIs */}
+      {/* Part 1: search-results APIs */}
       <div className="mb-3">
         <span className="pill pill-diy">part 1</span>
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mt-3 mb-2">Index-first APIs: Brave, You.com</h3>
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mt-3 mb-2">Search-results APIs: Brave, You.com</h3>
         <p className="text-sm text-gray-500 max-w-3xl mb-5">
-          A legitimate buy: a real index behind an API you control. The difference is scope. An index answers
-          "which pages?". An agent needs "give me the content, ranked for my question", and that second half is
-          most of the DIY tab.
+          Legitimate products, and this is not about who has an index: Tavily runs its own search infrastructure
+          too. The difference is what the API hands your agent. A results API answers "which pages?" with links
+          and snippets. An agent needs "give me the content, ranked for my question", and closing that gap
+          yourself is most of the DIY tab.
         </p>
       </div>
 
       <SplitCompare>
-        <ComparePanel variant="diy" pillLabel="search API" title="Standalone search API" subtitle="Brave Search, You.com, and similar index APIs">
+        <ComparePanel variant="diy" pillLabel="results API" title="Search-results API" subtitle="Brave Search, You.com, and similar APIs">
           <FeatureList variant="diy" items={[
-            { label: 'An index, by design', detail: 'the product is search results: links, titles, snippets, sometimes summaries. It answers "which pages?", and that is its job' },
+            { label: 'Results-page output, by design', detail: 'links, titles, snippets, sometimes summaries. It answers "which pages?", and that is its job' },
             { label: 'The content layer stays yours', detail: 'fetching pages, rendering JavaScript, extraction, and cleaning still happen on your side, with the browsers, proxies, and parsers that implies' },
             { label: 'Stale-or-good stays yours too', detail: 'freshness checking, quality filtering, and dedupe of what you fetched are still your code' },
-            { label: 'Relevance tuned for search', detail: 'ranking targets a results page; packing a context window for a specific question is logic you add' },
-            { label: 'No site-scale tools', detail: 'crawling or mapping a specific site is outside what an index API does' },
+            { label: 'Relevance tuned for search pages', detail: 'ranking targets a list a human scans; packing a context window for a specific question is logic you add' },
+            { label: 'No site-scale tools', detail: 'crawling or mapping a specific site is outside what a results API does' },
           ]} />
         </ComparePanel>
 
-        <ComparePanel variant="tavily" title="A full web access layer" subtitle="Index plus retrieval, extraction, and site tools in one API">
+        <ComparePanel variant="tavily" title="A full web access layer" subtitle="Tavily's own search infrastructure, built for agents end to end">
           <FeatureList variant="tavily" items={[
             { label: 'Search returns content', detail: 'results arrive with extracted page content and a relevance score per result, not just links to go fetch' },
             { label: 'Rendering and cleaning included', detail: 'the browsers, anti-bot handling, and parsers live behind the endpoint' },
             { label: 'Freshness as a parameter', detail: 'topic and time_range scope results on the request; scores let your code threshold what is good' },
-            { label: 'Site-scale endpoints', detail: 'Extract, Crawl, and Map cover the jobs an index cannot' },
+            { label: 'Site-scale endpoints', detail: 'Extract, Crawl, and Map cover the jobs a results API cannot' },
             { label: 'Agent-native wiring', detail: 'a hosted MCP server and official LangChain and LlamaIndex packages' },
           ]} />
         </ComparePanel>
@@ -94,11 +98,21 @@ export default function VsSearchApis() {
         {' '}Provider capabilities evolve; check current docs before deciding.
       </p>
 
-      <DiyStrengthCallout title="When an index-first API is the right call">
+      <DiyStrengthCallout title="When a search-results API is the right call">
         If you are building search features for humans (a results page, autosuggest, site search) or you already
-        operate a content pipeline and only lack an index, Brave or You.com fits exactly. The gap opens when the
-        consumer is an agent that needs readable, ranked content, because then the index is the easy half.
+        operate a content pipeline and only need result links to feed it, Brave or You.com fits exactly. The gap
+        opens when the consumer is an agent that needs readable, ranked content, because then the results list
+        is the easy half.
       </DiyStrengthCallout>
+
+      <TalkTrack
+        question="We can just use the Brave API, it's real web search."
+        points={[
+          'It is, and this is not an index argument: Tavily runs its own search infrastructure too. The difference is what comes back. A results API hands your agent links and snippets; you still build and run the fetching, rendering, cleaning, and ranking that turn those into usable context.',
+          'That remainder is exactly the DIY stack from the previous tab, minus one box. The invoice changes; the engineering commitment mostly does not.',
+          'Tavily sells the finished job: scored, LLM-ready content from one call, plus Extract, Crawl, and Map for the site-scale work no results API covers.',
+        ]}
+      />
 
       {/* Part 2: the agent-native wave */}
       <div className="mt-14 border-t border-gray-200 pt-8 mb-3">

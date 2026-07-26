@@ -6,10 +6,10 @@ import { Icon } from '../ui'
 // Qualitative by design: it compares mechanisms and ownership, not numbers.
 
 const columns = [
-  { key: 'native', label: 'Model-native search' },
-  { key: 'searchapi', label: 'Index-first search API' },
-  { key: 'diy', label: 'DIY stack' },
-  { key: 'tavily', label: 'Tavily', highlight: true },
+  { key: 'native', label: 'Built into the model', legend: 'The web search that ships inside ChatGPT, Gemini, or Claude.' },
+  { key: 'searchapi', label: 'Search-results API', legend: 'Brave or You.com style: links, titles, and snippets over an API.' },
+  { key: 'diy', label: 'Build it yourself', legend: 'A SERP or open API plus your own fetching, parsing, and ops.' },
+  { key: 'tavily', label: 'Tavily', legend: 'A managed web layer: search, extract, crawl, and map, returning agent-ready content.', highlight: true },
 ]
 
 // cell: 'yes' | 'partial' | 'build' | 'no'
@@ -32,7 +32,7 @@ const rows = [
   {
     need: 'Crawl or map a whole site',
     cells: { native: 'no', searchapi: 'no', diy: 'build', tavily: 'yes' },
-    detail: 'Neither native search nor a search index API walks a specific site for you. DIY means writing a crawler. Tavily ships Crawl and Map as endpoints.',
+    detail: 'Neither native search nor a results API walks a specific site for you. DIY means writing a crawler. Tavily ships Crawl and Map as endpoints.',
   },
   {
     need: 'Control over retrieval (domains, depth, recency)',
@@ -42,7 +42,7 @@ const rows = [
   {
     need: 'Who operates the retrieval infrastructure',
     cells: { native: 'yes', searchapi: 'partial', diy: 'build', tavily: 'yes' },
-    detail: 'Native search and Tavily are managed end to end. A search API manages the index but leaves the content layer (fetching pages, extraction, cleaning) on your side, which is most of the vs. DIY tab. DIY means all of it is yours.',
+    detail: 'Native search and Tavily are managed end to end. A results API manages the search side but leaves the content layer (fetching pages, extraction, cleaning) on your side, which is most of the vs. DIY tab. DIY means all of it is yours.',
   },
 ]
 
@@ -60,11 +60,19 @@ export default function AlternativesMatrix() {
     <div className="rounded-2xl border border-gray-200 bg-white overflow-hidden">
       <div className="p-6 pb-4">
         <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">Pick your need, read across</div>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 mb-4">
           Four ways to give an agent the web, compared by mechanism and ownership. Click a row for the reasoning.
           Provider capabilities evolve, so treat the third-party columns as the shape of each approach, not a spec
           sheet, and check current docs before deciding.
         </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {columns.map(c => (
+            <div key={c.key} className={`rounded-lg border p-3 ${c.highlight ? 'border-blue-200 bg-blue-50/40' : 'border-gray-200 bg-gray-50'}`}>
+              <div className={`text-[12px] font-semibold mb-0.5 ${c.highlight ? 'text-blue-700' : 'text-gray-900'}`}>{c.label}</div>
+              <p className="text-[12px] text-gray-500 leading-snug">{c.legend}</p>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
