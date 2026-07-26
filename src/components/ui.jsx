@@ -140,7 +140,7 @@ export function SplitCompare({ children }) {
   return <div className="grid md:grid-cols-2 gap-6 items-start">{children}</div>
 }
 
-export function ComparePanel({ variant = 'diy', title, subtitle, children }) {
+export function ComparePanel({ variant = 'diy', title, subtitle, pillLabel, children }) {
   const isTavily = variant === 'tavily'
   return (
     <motion.div
@@ -157,7 +157,7 @@ export function ComparePanel({ variant = 'diy', title, subtitle, children }) {
         <div className="flex items-center justify-between mb-1">
           <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
           <span className={`pill ${isTavily ? 'pill-tavily' : 'pill-diy'}`}>
-            {isTavily ? 'Tavily' : 'DIY stack'}
+            {pillLabel || (isTavily ? 'Tavily' : 'DIY stack')}
           </span>
         </div>
         {subtitle && <p className="text-sm text-gray-500 mb-4">{subtitle}</p>}

@@ -13,6 +13,8 @@ Modules:
 4. **Reliability & Scale**: failure modes you operate vs. a managed layer
 5. **Agent Integration**: MCP, LangChain, and LlamaIndex wiring
 6. **Security & Compliance**: the audit story in each world
+7. **Alternatives**: vs. model-native search (ChatGPT, Gemini, Claude) and vs.
+   standalone search APIs (Brave, You.com)
 
 ## Sourcing rule
 

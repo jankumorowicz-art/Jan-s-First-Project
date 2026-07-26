@@ -8,6 +8,7 @@ import ExtractionCrawling from './components/modules/ExtractionCrawling'
 import Reliability from './components/modules/Reliability'
 import AgentIntegration from './components/modules/AgentIntegration'
 import Security from './components/modules/Security'
+import Alternatives from './components/modules/Alternatives'
 
 const tabs = [
   { key: 'overview', label: 'Overview', component: Overview },
@@ -16,6 +17,7 @@ const tabs = [
   { key: 'reliability', label: 'Reliability & Scale', icon: 'gauge', component: Reliability },
   { key: 'integration', label: 'Agent Integration', icon: 'plug', component: AgentIntegration },
   { key: 'security', label: 'Security & Compliance', icon: 'shield', component: Security },
+  { key: 'alternatives', label: 'Alternatives', icon: 'compass', component: Alternatives },
 ]
 
 const pageTransition = {
