@@ -118,16 +118,16 @@ export default function VsDiy() {
         <OwnershipLedger items={ledger.diy} title="The DIY stack, as a ledger" />
 
         <div className="mt-8">
-          <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">What the maintenance load costs, in the public record</div>
+          <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">The arms race, in the public record</div>
           <p className="text-sm text-gray-500 mb-4 max-w-3xl">
-            Nobody publishes a study of your future stack, so here is the closest independent evidence: what
-            pipeline upkeep already costs data teams. A homegrown web-retrieval stack is a pipeline with extra
-            adversaries (bans, CAPTCHAs, redesigns) on top.
+            This is not a static engineering problem you solve once. The web is now majority automated traffic,
+            sites defend against it harder every year, and the people who run scraping stacks for a living
+            report their costs rising because of it.
           </p>
           <div className="grid sm:grid-cols-3 gap-4">
-            <ProofPoint point={independentPoints.firefighting} variant="independent" />
-            <ProofPoint point={independentPoints.maintenance} variant="independent" />
-            <ProofPoint point={independentPoints.resolveHours} variant="independent" />
+            <ProofPoint point={independentPoints.botTraffic} variant="independent" />
+            <ProofPoint point={independentPoints.proxyUsage} variant="independent" />
+            <ProofPoint point={independentPoints.proxySpend} variant="independent" />
           </div>
         </div>
 
@@ -135,7 +135,7 @@ export default function VsDiy() {
           question="A SERP key is $50 a month, why pay for a web layer?"
           points={[
             'The SERP call is the cheapest line in the pipeline. The links it returns still need fetching, rendering, parsing, dedupe, and ranking before an agent can use them, and that stack is yours to build and staff.',
-            'Independent surveys put pipeline maintenance at 40 to 53 percent of data engineering time, and that is for ordinary pipelines; a web-retrieval stack adds bans, CAPTCHAs, and site redesigns on top. That is the recurring bill behind the cheap SERP key.',
+            'The stack decays by design, not by accident: over half of web traffic is now automated and sites defend accordingly, and practitioners in the 2026 State of Web Scraping survey report rising proxy and infrastructure spend driven by anti-bot protections. That arms race is the recurring bill behind the cheap SERP key.',
             'Tavily collapses those nine standing components into one API call that returns scored, LLM-ready content, with the operating burden on the vendor, and the token bill drops because the model stops eating markup.',
           ]}
         />

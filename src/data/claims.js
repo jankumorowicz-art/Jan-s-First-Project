@@ -132,16 +132,21 @@ export const proofPoints = {
   },
 }
 
-// Independent studies that size the problem. Rendered by <ProofPoint
-// variant="independent"> with the caveat visible.
+// Independent studies that size the problem, all specific to web access:
+// bot traffic, scraping practice, page weight, and AI search accuracy.
+// Rendered by <ProofPoint variant="independent"> with the caveat visible.
 export const independentSources = {
-  monteCarlo: {
-    title: 'Monte Carlo / Wakefield Research, 2022 data quality survey',
-    url: 'https://www.montecarlodata.com/blog-2022-data-quality-survey/',
+  imperva: {
+    title: 'Imperva (Thales) Bad Bot Report 2026',
+    url: 'https://www.imperva.com/blog/bad-bot-report-2026-bots-agentic-age/',
   },
-  fivetran: {
-    title: 'Fivetran, enterprise data infrastructure benchmark report 2026',
-    url: 'https://www.fivetran.com/blog/the-enterprise-data-infrastructure-benchmark-report-2026',
+  apifySurvey: {
+    title: 'Apify + The Web Scraping Club, State of Web Scraping 2026',
+    url: 'https://blog.apify.com/web-scraping-report-2026/',
+  },
+  webAlmanac: {
+    title: 'HTTP Archive, Web Almanac 2024: page weight',
+    url: 'https://almanac.httparchive.org/en/2024/page-weight',
   },
   towCenter: {
     title: 'Columbia Journalism Review, Tow Center: AI search has a citation problem',
@@ -150,23 +155,29 @@ export const independentSources = {
 }
 
 export const independentPoints = {
-  firefighting: {
-    stat: '2 days/wk',
-    label: 'spent by data engineers firefighting bad data, about 40% of their time',
-    scope: 'Survey of 300 data professionals about data pipelines broadly, not web retrieval specifically.',
-    source: independentSources.monteCarlo,
+  botTraffic: {
+    stat: '53%+',
+    label: 'of all web traffic in 2025 was automated, surpassing human traffic for the second year running',
+    scope: 'Imperva Bad Bot Report 2026, global traffic measurement. This is the arms race every automated fetcher operates inside: sites defend accordingly.',
+    source: independentSources.imperva,
   },
-  resolveHours: {
-    stat: '~9 hours',
-    label: 'average time to resolve a data incident once detected',
-    scope: 'Same Monte Carlo / Wakefield survey of 300 data professionals, 2022.',
-    source: independentSources.monteCarlo,
+  proxySpend: {
+    stat: '62%+',
+    label: 'of scraping practitioners reported higher infrastructure spend, driven largely by stronger anti-bot protections',
+    scope: 'Apify and The Web Scraping Club community survey of scraping practitioners, December 2025.',
+    source: independentSources.apifySurvey,
   },
-  maintenance: {
-    stat: '53%',
-    label: 'of enterprise data engineering capacity goes to maintaining and troubleshooting existing pipelines',
-    scope: 'Fivetran benchmark of 500 senior data and technology leaders at 5,000+ employee enterprises, Q4 2025.',
-    source: independentSources.fivetran,
+  proxyUsage: {
+    stat: '65.8%',
+    label: 'of scraping practitioners used more proxies in 2025 than the year before',
+    scope: 'Same Apify / Web Scraping Club practitioner survey. The DIY access layer gets more expensive every year, not cheaper.',
+    source: independentSources.apifySurvey,
+  },
+  pageWeight: {
+    stat: '2,652 KB',
+    label: 'median weight of a desktop web page; the readable text an agent needs is a small fraction of it',
+    scope: 'HTTP Archive Web Almanac 2024, measured across millions of real pages.',
+    source: independentSources.webAlmanac,
   },
   citations: {
     stat: '60%+',

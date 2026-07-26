@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Icon } from '../ui'
+import { Icon, SourceLink } from '../ui'
+import { independentSources } from '../../data/claims'
 
 // Token math with the reader's own assumptions. Deliberately publishes no
 // vendor numbers: every input is a slider or field the reader controls, and
@@ -102,7 +103,10 @@ export default function TokenMath() {
       <p className="text-[11px] text-gray-400 mt-4">
         Arithmetic only: (queries × pages × tokens per page × price), with the raw side multiplied by your
         overhead assumption. Whether cleaning happens in your DIY pipeline or behind a managed API, the token
-        saving is real; the difference is who builds and runs the cleaning.
+        saving is real; the difference is who builds and runs the cleaning. For calibrating the multiplier: the
+        median desktop page weighs 2,652 KB per the Web Almanac's measurement of millions of real pages, while
+        the readable text an agent needs is typically a few KB of that.{' '}
+        <SourceLink source={independentSources.webAlmanac} className="!inline" />
       </p>
     </div>
   )

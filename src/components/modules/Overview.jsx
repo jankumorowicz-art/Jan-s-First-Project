@@ -85,14 +85,14 @@ export default function Overview({ onNavigate }) {
           The problem, sized by independent studies
         </div>
         <div className="grid sm:grid-cols-3 gap-4">
-          <ProofPoint point={independentPoints.maintenance} variant="independent" />
-          <ProofPoint point={independentPoints.firefighting} variant="independent" />
+          <ProofPoint point={independentPoints.botTraffic} variant="independent" />
+          <ProofPoint point={independentPoints.proxySpend} variant="independent" />
           <ProofPoint point={independentPoints.citations} variant="independent" />
         </div>
         <p className="text-xs text-gray-400 mt-3">
           Independent studies size the problem space; they are not claims about Tavily or any competitor. The
-          third big line item, token consumption, has no honest industry number, so the DIY tab has a calculator
-          that models it from your own assumptions.
+          other big line item, token consumption, has no honest industry number, so the DIY tab has a calculator
+          that models it from your own assumptions, calibrated by the Web Almanac's page-weight data.
         </p>
       </div>
 

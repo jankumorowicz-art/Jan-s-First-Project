@@ -25,10 +25,12 @@ in two labelled classes:
 - **Published** (blue badge): Tavily numbers, sourced only from tavily.com,
   docs.tavily.com, or nebius.com.
 - **Independent** (gray badge): problem-sizing numbers from named third-party
-  studies (Monte Carlo/Wakefield 2022, Fivetran 2026 benchmark, Columbia Tow
-  Center 2025), each with a visible scope caveat and a link to the original
-  publisher. They size the problem space and never describe Tavily or a named
-  competitor's performance.
+  studies specific to web access: Imperva's Bad Bot Report 2026 (bot traffic),
+  the Apify / Web Scraping Club practitioner survey 2026 (scraping costs), the
+  HTTP Archive Web Almanac 2024 (page weight), and Columbia's Tow Center 2025
+  (AI search citation accuracy). Each carries a visible scope caveat and a
+  link to the original publisher. They size the problem space and never
+  describe Tavily or a named competitor's performance.
 
 Token consumption has no honest industry number, so the DIY tab ships a
 calculator that models it entirely from the reader's own assumptions.
