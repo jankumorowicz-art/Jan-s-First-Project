@@ -3,21 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Icon } from './components/ui'
 
 import Overview from './components/modules/Overview'
-import SearchRetrieval from './components/modules/SearchRetrieval'
-import ExtractionCrawling from './components/modules/ExtractionCrawling'
-import Reliability from './components/modules/Reliability'
-import AgentIntegration from './components/modules/AgentIntegration'
-import Security from './components/modules/Security'
-import Alternatives from './components/modules/Alternatives'
+import VsDiy from './components/modules/VsDiy'
+import VsNative from './components/modules/VsNative'
+import VsSearchApis from './components/modules/VsSearchApis'
 
 const tabs = [
   { key: 'overview', label: 'Overview', component: Overview },
-  { key: 'search', label: 'Search & Retrieval', icon: 'search', component: SearchRetrieval },
-  { key: 'extraction', label: 'Extraction & Crawling', icon: 'spider', component: ExtractionCrawling },
-  { key: 'reliability', label: 'Reliability & Scale', icon: 'gauge', component: Reliability },
-  { key: 'integration', label: 'Agent Integration', icon: 'plug', component: AgentIntegration },
-  { key: 'security', label: 'Security & Compliance', icon: 'shield', component: Security },
-  { key: 'alternatives', label: 'Alternatives', icon: 'compass', component: Alternatives },
+  { key: 'diy', label: 'vs. DIY stack', icon: 'wrench', component: VsDiy },
+  { key: 'native', label: 'vs. Model-native search', icon: 'sparkles', component: VsNative },
+  { key: 'searchapis', label: 'vs. Brave & You.com', icon: 'search', component: VsSearchApis },
 ]
 
 const pageTransition = {
@@ -44,9 +38,10 @@ export default function App() {
         <div className="section-container py-6 relative text-center">
           <button onClick={() => setTabKey('overview')} className="inline-block">
             <h1 className="text-white text-2xl md:text-3xl">
-              Tavily <span className="text-white/40 font-normal">vs.</span> building the web layer yourself
+              Tavily <span className="text-white/40 font-normal">vs.</span> the alternatives
             </h1>
           </button>
+          <p className="text-white/50 text-sm mt-1.5">the web layer for AI agents, compared road by road</p>
         </div>
       </div>
 
@@ -71,7 +66,7 @@ export default function App() {
       <AnimatePresence mode="wait">
         <motion.div key={tabKey} {...pageTransition}>
           <div className="section-container py-12 md:py-16">
-            <ActiveComponent />
+            <ActiveComponent onNavigate={setTabKey} />
           </div>
         </motion.div>
       </AnimatePresence>
@@ -82,7 +77,8 @@ export default function App() {
           <p className="text-sm text-gray-400 text-center">
             Tavily is a commercial web access API for AI agents, now part of Nebius. Every number on this site
             links to a published Tavily or Nebius source. Where a number is not published, we show the mechanism
-            without one.
+            without one. Third-party comparisons are qualitative; provider capabilities evolve, so check current
+            docs before deciding.
           </p>
         </div>
       </footer>

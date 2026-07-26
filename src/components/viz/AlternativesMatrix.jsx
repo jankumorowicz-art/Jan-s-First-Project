@@ -42,7 +42,7 @@ const rows = [
   {
     need: 'Who operates the retrieval infrastructure',
     cells: { native: 'yes', searchapi: 'partial', diy: 'build', tavily: 'yes' },
-    detail: 'Native search and Tavily are managed end to end. A search API manages the index but leaves the content layer (fetching pages, extraction, cleaning) on your side, which is modules 01 and 02 of this site. DIY means all of it is yours.',
+    detail: 'Native search and Tavily are managed end to end. A search API manages the index but leaves the content layer (fetching pages, extraction, cleaning) on your side, which is most of the vs. DIY tab. DIY means all of it is yours.',
   },
 ]
 

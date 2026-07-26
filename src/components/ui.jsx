@@ -239,6 +239,32 @@ export function ProofPoint({ point, className = '' }) {
 }
 
 /* ------------------------------------------------------------
+   Talk track: the 3 lines to say out loud on this comparison
+   ------------------------------------------------------------ */
+
+export function TalkTrack({ question, points }) {
+  return (
+    <div className="mt-8 rounded-2xl border-2 border-blue-200 ring-1 ring-blue-100 bg-gradient-to-br from-blue-50/70 to-white p-5">
+      <div className="flex items-center gap-2 mb-1">
+        <span className="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center">
+          <Icon name="sparkles" className="w-4 h-4" />
+        </span>
+        <div className="text-xs font-semibold uppercase tracking-wide text-blue-600">The talk track</div>
+      </div>
+      {question && <p className="text-sm font-semibold text-gray-900 mb-3">When the room asks: "{question}"</p>}
+      <ol className="space-y-2">
+        {points.map((p, i) => (
+          <li key={i} className="flex items-start gap-2.5 text-sm text-gray-700 leading-relaxed">
+            <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white text-[11px] font-bold flex items-center justify-center">{i + 1}</span>
+            {p}
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
+/* ------------------------------------------------------------
    Honest nod: keeps the pain-forward framing credible
    ------------------------------------------------------------ */
 
