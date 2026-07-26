@@ -2,8 +2,9 @@
 // Two classes of claim, and the UI labels them differently:
 // 1. Tavily-published: numbers from tavily.com, docs.tavily.com, or
 //    nebius.com, rendered with a "published" badge.
-// 2. Independent: numbers from named third-party studies (Monte Carlo,
-//    Fivetran, Columbia's Tow Center), rendered with an "independent" badge
+// 2. Independent: numbers from named third-party studies specific to web
+//    access (Imperva, the Apify / Web Scraping Club survey, HTTP Archive,
+//    Columbia's Tow Center), rendered with an "independent" badge
 //    and a scope note. These size the problem space; they never describe
 //    Tavily's own performance and never mention a competitor by name.
 // If a number is not published by anyone credible, we show the mechanism
