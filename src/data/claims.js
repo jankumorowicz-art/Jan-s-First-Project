@@ -1,8 +1,13 @@
 // Single source of truth for sourced proof points and the ownership ledger.
-// Hard rule: every numeric claim here is published by Tavily (tavily.com or
-// docs.tavily.com) or by Nebius (nebius.com), and carries the `source` link so
-// the UI can attribute it honestly. If a number is not published, we show the
-// mechanism without the number. No stats are invented for this site.
+// Two classes of claim, and the UI labels them differently:
+// 1. Tavily-published: numbers from tavily.com, docs.tavily.com, or
+//    nebius.com, rendered with a "published" badge.
+// 2. Independent: numbers from named third-party studies (Monte Carlo,
+//    Fivetran, Columbia's Tow Center), rendered with an "independent" badge
+//    and a scope note. These size the problem space; they never describe
+//    Tavily's own performance and never mention a competitor by name.
+// If a number is not published by anyone credible, we show the mechanism
+// without the number. No stats are invented for this site.
 
 export const sources = {
   // Company and scale
@@ -124,6 +129,50 @@ export const proofPoints = {
     stat: '1-2 credits',
     label: 'per 10 pages mapped, by depth',
     source: sources.mapApi,
+  },
+}
+
+// Independent studies that size the problem. Rendered by <ProofPoint
+// variant="independent"> with the caveat visible.
+export const independentSources = {
+  monteCarlo: {
+    title: 'Monte Carlo / Wakefield Research, 2022 data quality survey',
+    url: 'https://www.montecarlodata.com/blog-2022-data-quality-survey/',
+  },
+  fivetran: {
+    title: 'Fivetran, enterprise data infrastructure benchmark report 2026',
+    url: 'https://www.fivetran.com/blog/the-enterprise-data-infrastructure-benchmark-report-2026',
+  },
+  towCenter: {
+    title: 'Columbia Journalism Review, Tow Center: AI search has a citation problem',
+    url: 'https://www.cjr.org/tow_center/we-compared-eight-ai-search-engines-theyre-all-bad-at-citing-news.php',
+  },
+}
+
+export const independentPoints = {
+  firefighting: {
+    stat: '2 days/wk',
+    label: 'spent by data engineers firefighting bad data, about 40% of their time',
+    scope: 'Survey of 300 data professionals about data pipelines broadly, not web retrieval specifically.',
+    source: independentSources.monteCarlo,
+  },
+  resolveHours: {
+    stat: '~9 hours',
+    label: 'average time to resolve a data incident once detected',
+    scope: 'Same Monte Carlo / Wakefield survey of 300 data professionals, 2022.',
+    source: independentSources.monteCarlo,
+  },
+  maintenance: {
+    stat: '53%',
+    label: 'of enterprise data engineering capacity goes to maintaining and troubleshooting existing pipelines',
+    scope: 'Fivetran benchmark of 500 senior data and technology leaders at 5,000+ employee enterprises, Q4 2025.',
+    source: independentSources.fivetran,
+  },
+  citations: {
+    stat: '60%+',
+    label: 'of 1,600 citation queries answered incorrectly across eight AI search chatbots',
+    scope: 'Tow Center test of consumer AI search products on news citation retrieval, March 2025. Individual tools ranged from 37% to 94% incorrect; capabilities evolve.',
+    source: independentSources.towCenter,
   },
 }
 

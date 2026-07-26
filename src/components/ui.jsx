@@ -222,17 +222,27 @@ export function SourceLink({ source, className = '' }) {
   )
 }
 
-// A clearly-labelled proof point, published by Tavily or Nebius.
-export function ProofPoint({ point, className = '' }) {
+// A clearly-labelled proof point. variant 'published' means the number comes
+// from Tavily or Nebius; 'independent' means a named third-party study, shown
+// with its scope caveat so nobody mistakes it for a Tavily claim.
+export function ProofPoint({ point, variant = 'published', className = '' }) {
+  const isIndependent = variant === 'independent'
   return (
-    <div className={`proof ${className}`}>
+    <div className={`${isIndependent ? 'rounded-xl border border-gray-300 bg-gray-50 p-4' : 'proof'} ${className}`}>
       <div className="flex items-center justify-between mb-2">
-        <span className="badge-published">
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-500" /> published
-        </span>
+        {isIndependent ? (
+          <span className="inline-flex items-center gap-1 rounded-full bg-white border border-gray-300 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-500">
+            <span className="w-1.5 h-1.5 rounded-full bg-gray-400" /> independent study
+          </span>
+        ) : (
+          <span className="badge-published">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" /> published
+          </span>
+        )}
       </div>
-      <div className="proof-stat mb-1">{point.stat}</div>
-      <p className="text-sm text-gray-600 mb-3">{point.label}</p>
+      <div className={isIndependent ? 'text-2xl font-bold tracking-tight leading-none text-gray-800 mb-1' : 'proof-stat mb-1'}>{point.stat}</div>
+      <p className="text-sm text-gray-600 mb-2">{point.label}</p>
+      {point.scope && <p className="text-[11px] text-gray-400 italic mb-2">{point.scope}</p>}
       <SourceLink source={point.source} />
     </div>
   )

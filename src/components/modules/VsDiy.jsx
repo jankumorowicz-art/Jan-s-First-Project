@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ModuleHeader, TheJob, DiyTavilyToggle, OwnershipLedger, DiyStrengthCallout, TalkTrack } from '../ui'
+import { ModuleHeader, TheJob, DiyTavilyToggle, OwnershipLedger, DiyStrengthCallout, TalkTrack, ProofPoint } from '../ui'
 import ResultComparator from '../viz/ResultComparator'
 import FreshnessQuality from '../viz/FreshnessQuality'
 import TavilySearch from '../tavily/TavilySearch'
@@ -13,7 +13,8 @@ import TavilySecurity from '../tavily/TavilySecurity'
 import DiySecurity from '../diy/DiySecurity'
 import TavilyIntegration from '../tavily/TavilyIntegration'
 import DiyIntegration from '../diy/DiyIntegration'
-import { ledger } from '../../data/claims'
+import TokenMath from '../viz/TokenMath'
+import { ledger, independentPoints } from '../../data/claims'
 
 // One tab for the whole build-vs-buy argument: the SERP/DuckDuckGo call is
 // step one of a stack, and each phase below is a piece of that stack.
@@ -25,6 +26,7 @@ const phases = [
   { key: 'alive', label: 'Keeping it alive' },
   { key: 'audit', label: 'The audit' },
   { key: 'wiring', label: 'Agent wiring' },
+  { key: 'tokens', label: 'The token bill' },
 ]
 
 const phaseDescs = {
@@ -34,6 +36,7 @@ const phaseDescs = {
   alive: 'Proxies get banned, quotas exhaust, sites redesign. Who carries the pager, and what does reliability look like as a product guarantee.',
   audit: 'Retention, third parties, credentials, patching: whoever owns the stack owns the security review.',
   wiring: 'A pipeline is not a tool. The MCP server and framework wrappers your agent actually calls have to come from somewhere.',
+  tokens: 'Markup the model never needed is still billed at your input rate. Model the gap with your own assumptions.',
 }
 
 export default function VsDiy() {
@@ -102,6 +105,7 @@ export default function VsDiy() {
               note="Same agent, same frameworks. Switch to see the wrapper work in the DIY world."
             />
           )}
+          {phase === 'tokens' && <TokenMath />}
         </motion.div>
       </AnimatePresence>
 
@@ -113,12 +117,26 @@ export default function VsDiy() {
 
         <OwnershipLedger items={ledger.diy} title="The DIY stack, as a ledger" />
 
+        <div className="mt-8">
+          <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">What the maintenance load costs, in the public record</div>
+          <p className="text-sm text-gray-500 mb-4 max-w-3xl">
+            Nobody publishes a study of your future stack, so here is the closest independent evidence: what
+            pipeline upkeep already costs data teams. A homegrown web-retrieval stack is a pipeline with extra
+            adversaries (bans, CAPTCHAs, redesigns) on top.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            <ProofPoint point={independentPoints.firefighting} variant="independent" />
+            <ProofPoint point={independentPoints.maintenance} variant="independent" />
+            <ProofPoint point={independentPoints.resolveHours} variant="independent" />
+          </div>
+        </div>
+
         <TalkTrack
           question="A SERP key is $50 a month, why pay for a web layer?"
           points={[
             'The SERP call is the cheapest line in the pipeline. The links it returns still need fetching, rendering, parsing, dedupe, and ranking before an agent can use them, and that stack is yours to build and staff.',
-            'The stack decays by default: proxies get banned, parsers rot when sites redesign, and stale or junk content degrades answers without ever throwing an error.',
-            'Tavily collapses those nine standing components into one API call that returns scored, LLM-ready content, with the operating burden on the vendor.',
+            'Independent surveys put pipeline maintenance at 40 to 53 percent of data engineering time, and that is for ordinary pipelines; a web-retrieval stack adds bans, CAPTCHAs, and site redesigns on top. That is the recurring bill behind the cheap SERP key.',
+            'Tavily collapses those nine standing components into one API call that returns scored, LLM-ready content, with the operating burden on the vendor, and the token bill drops because the model stops eating markup.',
           ]}
         />
 

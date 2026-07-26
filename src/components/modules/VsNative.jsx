@@ -1,5 +1,5 @@
-import { ModuleHeader, SplitCompare, ComparePanel, FeatureList, DiyStrengthCallout, TalkTrack, SourceLink } from '../ui'
-import { sources } from '../../data/claims'
+import { ModuleHeader, SplitCompare, ComparePanel, FeatureList, DiyStrengthCallout, TalkTrack, SourceLink, ProofPoint } from '../ui'
+import { sources, independentPoints } from '../../data/claims'
 
 // Not build vs. buy: the model providers already ship search. This tab is
 // about when the built-in is enough and when the web layer should be yours.
@@ -43,11 +43,29 @@ export default function VsNative() {
         {' '}Provider capabilities evolve; check current docs before deciding.
       </p>
 
+      <div className="mt-10">
+        <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">Why "trust the built-in" deserves scrutiny, in the public record</div>
+        <p className="text-sm text-gray-500 mb-4 max-w-3xl">
+          The structural problem with a closed retrieval pipeline is that when it is wrong, nothing tells you,
+          and you cannot tune it. The largest independent test of consumer AI search products to date found
+          exactly that pattern.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-4 items-start">
+          <ProofPoint point={independentPoints.citations} variant="independent" />
+          <div className="rounded-xl border border-gray-200 bg-white p-4 text-sm text-gray-600 leading-relaxed">
+            The point is not that any one product is bad; results ranged widely by tool and these products keep
+            improving. The point an exec should take: retrieval quality varies a lot, is invisible from the
+            outside, and inside a closed pipeline there is no relevance score to threshold, no parameter to
+            tune, and no retrieved content to audit. Owning the web layer turns that from a hope into a dial.
+          </div>
+        </div>
+      </div>
+
       <TalkTrack
         question="Doesn't ChatGPT already search the web?"
         points={[
           'It does, for ChatGPT. The moment you run a second model, or want the option to, each provider grounds differently and none of them shows you what was retrieved. A web layer you own gives every model the same view of the web.',
-          'Native search returns an answer, not the material: no full page content to store, index, or audit. If you are building RAG, an archive, or anything downstream of retrieval, you need the content itself.',
+          'Trust needs receipts: an independent Tow Center test found consumer AI search products answered over 60 percent of 1,600 citation queries incorrectly, with a huge range between tools. Closed retrieval fails silently; owned retrieval gives you scores, parameters, and the content itself to audit.',
           'And it stops at search: pointing at a specific site, extracting known URLs, or crawling docs is a different product, which is what Extract, Crawl, and Map are for.',
         ]}
       />

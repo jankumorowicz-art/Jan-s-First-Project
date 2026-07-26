@@ -19,12 +19,20 @@ Tabs, one per alternative:
 
 ## Sourcing rule
 
-`src/data/claims.js` is the single source of truth for every claim on the site.
-Every numeric claim carries a published source URL from tavily.com,
-docs.tavily.com, or nebius.com. If a number is not published, the site shows
-the mechanism without it. Third-party comparisons (model providers, Brave,
-You.com) are qualitative by design and carry no numbers. Simulator timings are
-labelled illustrative.
+`src/data/claims.js` is the single source of truth for every claim on the site,
+in two labelled classes:
+
+- **Published** (blue badge): Tavily numbers, sourced only from tavily.com,
+  docs.tavily.com, or nebius.com.
+- **Independent** (gray badge): problem-sizing numbers from named third-party
+  studies (Monte Carlo/Wakefield 2022, Fivetran 2026 benchmark, Columbia Tow
+  Center 2025), each with a visible scope caveat and a link to the original
+  publisher. They size the problem space and never describe Tavily or a named
+  competitor's performance.
+
+Token consumption has no honest industry number, so the DIY tab ships a
+calculator that models it entirely from the reader's own assumptions.
+Simulator timings are labelled illustrative.
 
 ## Local development
 

@@ -1,5 +1,5 @@
 import { ProofPoint, Icon, SourceLink } from '../ui'
-import { proofPoints, totalOwnedComponents, sources } from '../../data/claims'
+import { proofPoints, independentPoints, totalOwnedComponents, sources } from '../../data/claims'
 import WebLayerMap from '../viz/WebLayerMap'
 import MaturityJourney from '../viz/MaturityJourney'
 import FeatureMatrix from '../viz/FeatureMatrix'
@@ -77,6 +77,23 @@ export default function Overview({ onNavigate }) {
       {/* Maturity journey */}
       <div className="mt-10">
         <MaturityJourney />
+      </div>
+
+      {/* The problem, sized by independent studies */}
+      <div className="mt-10">
+        <div className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-3">
+          The problem, sized by independent studies
+        </div>
+        <div className="grid sm:grid-cols-3 gap-4">
+          <ProofPoint point={independentPoints.maintenance} variant="independent" />
+          <ProofPoint point={independentPoints.firefighting} variant="independent" />
+          <ProofPoint point={independentPoints.citations} variant="independent" />
+        </div>
+        <p className="text-xs text-gray-400 mt-3">
+          Independent studies size the problem space; they are not claims about Tavily or any competitor. The
+          third big line item, token consumption, has no honest industry number, so the DIY tab has a calculator
+          that models it from your own assumptions.
+        </p>
       </div>
 
       {/* Published scale proof */}

@@ -75,10 +75,10 @@ export default function App() {
       <footer className="border-t border-gray-200 bg-white">
         <div className="section-container py-8">
           <p className="text-sm text-gray-400 text-center">
-            Tavily is a commercial web access API for AI agents, now part of Nebius. Every number on this site
-            links to a published Tavily or Nebius source. Where a number is not published, we show the mechanism
-            without one. Third-party comparisons are qualitative; provider capabilities evolve, so check current
-            docs before deciding.
+            Tavily is a commercial web access API for AI agents, now part of Nebius. Every Tavily number on this
+            site links to a published Tavily or Nebius source; independent data points are labelled as such and
+            link to the original study. Where no honest number exists, we show the mechanism, or hand you a
+            calculator. Provider capabilities evolve, so check current docs before deciding.
           </p>
         </div>
       </footer>
