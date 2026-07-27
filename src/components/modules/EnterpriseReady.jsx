@@ -1,4 +1,4 @@
-import { ModuleHeader, DiyTavilyToggle, TalkTrack, ProofPoint, ValidationCard, SourceLink, Icon } from '../ui'
+import { ModuleHeader, DiyTavilyToggle, TalkTrack, ProofPoint, ValidationCard, SourceLink, Icon, BottomLine } from '../ui'
 import TavilyReliability from '../tavily/TavilyReliability'
 import DiyReliability from '../diy/DiyReliability'
 import TavilySecurity from '../tavily/TavilySecurity'
@@ -15,6 +15,16 @@ export default function EnterpriseReady() {
         eyebrow="Enterprise ready · 04"
         title="Enterprise ready"
         intro="Two questions come before the rest: can this layer carry production traffic, and will it pass a security review. Every answer here is published and linked."
+      />
+
+      <BottomLine
+        verdict="Production scale and the compliance answers are published, not promised: SOC 2, zero data retention, safe search, PII controls, prompt-injection guardrails, and an EU endpoint."
+        chips={[
+          '300M+ requests a month at 99.99%',
+          'SOC 2 and zero data retention',
+          'Prompt-injection guardrails',
+          'EU data residency',
+        ]}
       />
 
       {/* Published scale record */}
@@ -60,7 +70,7 @@ export default function EnterpriseReady() {
       </div>
       <div className="grid sm:grid-cols-3 gap-4 mb-6">
         <ProofPoint point={independentPoints.botTraffic} variant="independent" />
-        <ProofPoint point={independentPoints.proxyUsage} variant="independent" />
+        <ProofPoint point={independentPoints.trainingCrawl} variant="independent" />
         <ProofPoint point={independentPoints.proxySpend} variant="independent" />
       </div>
       <DiyTavilyToggle

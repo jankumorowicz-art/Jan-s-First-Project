@@ -246,6 +246,14 @@ export const proofPoints = {
 // bot traffic, scraping practice, page weight, and AI search accuracy.
 // Rendered by <ProofPoint variant="independent"> with the caveat visible.
 export const independentSources = {
+  cloudflareBots: {
+    title: 'Cloudflare, the agentic Internet bot report (2026)',
+    url: 'https://blog.cloudflare.com/agentic-internet-bot-report/',
+  },
+  cloudflareCrawlers: {
+    title: 'Cloudflare, AI crawler traffic by purpose and industry (2026)',
+    url: 'https://blog.cloudflare.com/ai-crawler-traffic-by-purpose-and-industry/',
+  },
   imperva: {
     title: 'Imperva (Thales) Bad Bot Report 2026',
     url: 'https://www.imperva.com/blog/bad-bot-report-2026-bots-agentic-age/',
@@ -255,21 +263,27 @@ export const independentSources = {
     url: 'https://blog.apify.com/web-scraping-report-2026/',
   },
   webAlmanac: {
-    title: 'HTTP Archive, Web Almanac 2024: page weight',
-    url: 'https://almanac.httparchive.org/en/2024/page-weight',
+    title: 'HTTP Archive, Web Almanac 2025: page weight',
+    url: 'https://almanac.httparchive.org/en/2025/page-weight',
   },
-  towCenter: {
-    title: 'Columbia Journalism Review, Tow Center: AI search has a citation problem',
-    url: 'https://www.cjr.org/tow_center/we-compared-eight-ai-search-engines-theyre-all-bad-at-citing-news.php',
+  ebuBbc: {
+    title: 'BBC and EBU, News Integrity in AI Assistants',
+    url: 'https://www.ebu.ch/news/2025/10/ai-s-systemic-distortion-of-news-is-consistent-across-languages-and-territories-international-study-by-public-service-broadcaste',
   },
 }
 
 export const independentPoints = {
   botTraffic: {
-    stat: '53%+',
-    label: 'of all web traffic in 2025 was automated, surpassing human traffic for the second year running',
-    scope: 'Imperva Bad Bot Report 2026, global traffic measurement. This is the arms race every automated fetcher operates inside: sites defend accordingly.',
-    source: independentSources.imperva,
+    stat: 'Majority',
+    label: 'of web traffic is now automated rather than human, measured across Cloudflare\'s network',
+    scope: 'Cloudflare, 2026. Corroborated by the Imperva Bad Bot Report 2026. This is the arms race every automated fetcher operates inside: sites defend accordingly.',
+    source: independentSources.cloudflareBots,
+  },
+  trainingCrawl: {
+    stat: '52%',
+    label: 'of AI crawler requests were for training as of June 2026, up from 22% in spring 2025',
+    scope: 'Cloudflare, 2026. Crawl pressure on the open web is rising fast, and site defenses are tightening in response.',
+    source: independentSources.cloudflareCrawlers,
   },
   proxySpend: {
     stat: '62%+',
@@ -284,16 +298,16 @@ export const independentPoints = {
     source: independentSources.apifySurvey,
   },
   pageWeight: {
-    stat: '2,652 KB',
-    label: 'median weight of a desktop web page; the readable text an agent needs is a small fraction of it',
-    scope: 'HTTP Archive Web Almanac 2024, measured across millions of real pages.',
+    stat: '2.9 MB',
+    label: 'median weight of a desktop page in 2025; the readable text an agent needs is a small fraction of it',
+    scope: 'HTTP Archive Web Almanac, 2025 edition, measured across millions of real pages.',
     source: independentSources.webAlmanac,
   },
   citations: {
-    stat: '60%+',
-    label: 'of 1,600 citation queries answered incorrectly across eight AI search chatbots',
-    scope: 'Tow Center test of consumer AI search products on news citation retrieval, March 2025. Individual tools ranged from 37% to 94% incorrect; capabilities evolve.',
-    source: independentSources.towCenter,
+    stat: '45%',
+    label: 'of AI assistant answers about news had at least one significant issue; 31% had serious sourcing problems',
+    scope: 'BBC and EBU study of 3,000+ responses from ChatGPT, Copilot, Gemini, and Perplexity, run by 22 public broadcasters in 18 countries, October 2025. Capabilities evolve.',
+    source: independentSources.ebuBbc,
   },
 }
 

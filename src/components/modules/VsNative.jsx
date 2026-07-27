@@ -1,4 +1,4 @@
-import { ModuleHeader, SplitCompare, ComparePanel, FeatureList, DiyStrengthCallout, TalkTrack, SourceLink, ProofPoint } from '../ui'
+import { ModuleHeader, SplitCompare, ComparePanel, FeatureList, DiyStrengthCallout, TalkTrack, SourceLink, ProofPoint, BottomLine } from '../ui'
 import { sources, independentPoints } from '../../data/claims'
 
 // Not build vs. buy: the model providers already ship search. This tab is
@@ -12,6 +12,16 @@ export default function VsNative() {
         eyebrow="Replace what is already there · 02"
         title="vs. the model's built-in search"
         intro="ChatGPT, Gemini, and Claude already search the web. The question is what you get by owning the web layer instead of renting the one welded to your model."
+      />
+
+      <BottomLine
+        verdict="Built-in search locks retrieval to one vendor and hides it from you. Owning the layer keeps grounding consistent across models and gives you the content itself."
+        chips={[
+          'Model portability',
+          'Retrieval you can tune and audit',
+          'Content you can store and cite',
+          'Extract and Crawl, not just search',
+        ]}
       />
 
       <SplitCompare>

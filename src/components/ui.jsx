@@ -249,6 +249,26 @@ export function ProofPoint({ point, variant = 'published', className = '' }) {
 }
 
 /* ------------------------------------------------------------
+   Bottom line: the takeaway before the evidence
+   ------------------------------------------------------------ */
+
+export function BottomLine({ verdict, chips = [] }) {
+  return (
+    <div className="rounded-2xl bg-gray-900 text-white p-6 mb-10">
+      <div className="text-[11px] font-semibold uppercase tracking-widest text-blue-300 mb-2">Bottom line</div>
+      <p className="text-lg md:text-xl font-semibold leading-snug mb-4">{verdict}</p>
+      <div className="flex flex-wrap gap-2">
+        {chips.map(c => (
+          <span key={c} className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-3 py-1 text-[12px] text-gray-200">
+            <Icon name="check" className="w-3 h-3 text-blue-300" /> {c}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* ------------------------------------------------------------
    On-the-record voices and named validation
    ------------------------------------------------------------ */
 

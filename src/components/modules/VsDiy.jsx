@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ModuleHeader, TheJob, DiyTavilyToggle, OwnershipLedger, DiyStrengthCallout, TalkTrack } from '../ui'
+import { ModuleHeader, TheJob, DiyTavilyToggle, OwnershipLedger, DiyStrengthCallout, TalkTrack, BottomLine } from '../ui'
+import OwnershipMath from '../viz/OwnershipMath'
 import ResultComparator from '../viz/ResultComparator'
 import WebLayerMap from '../viz/WebLayerMap'
 import TavilyFreshness from '../tavily/TavilyFreshness'
@@ -42,6 +43,16 @@ export default function VsDiy() {
         eyebrow="Build vs. buy · 01"
         title="vs. SERP APIs & the DIY stack"
         intro="A SERP or DuckDuckGo call is cheap. The stack you maintain around it is not. Walk the phases; each one is a standing commitment."
+      />
+
+      <BottomLine
+        verdict="The API line item is not the cost. Nine standing components, a permanent arms race with site defenses, and the engineering time to run both are."
+        chips={[
+          'Nine components you own',
+          'Rising anti-bot cost, per practitioner surveys',
+          'Token waste on raw markup',
+          'One API call replaces the chain',
+        ]}
       />
 
       <div className="mb-8">
@@ -106,6 +117,8 @@ export default function VsDiy() {
         </TheJob>
 
         <OwnershipLedger items={ledger.diy} title="The DIY stack, as a ledger" />
+
+        <OwnershipMath />
 
         <TalkTrack
           question="A SERP key is $50 a month, why pay for a web layer?"

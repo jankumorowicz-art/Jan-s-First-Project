@@ -1,4 +1,4 @@
-import { ModuleHeader, SplitCompare, ComparePanel, FeatureList, DiyStrengthCallout, TalkTrack, SourceLink, ProofPoint, Icon } from '../ui'
+import { ModuleHeader, SplitCompare, ComparePanel, FeatureList, DiyStrengthCallout, TalkTrack, SourceLink, ProofPoint, Icon, BottomLine } from '../ui'
 import { sources, proofPoints } from '../../data/claims'
 
 // Buy vs. buy, in two honest parts: search-results APIs (Brave, You.com)
@@ -55,6 +55,16 @@ export default function VsSearchApis() {
         eyebrow="Buy vs. buy · 03"
         title="vs. legacy search APIs"
         intro="Legacy search APIs like Brave and You.com differ from Tavily in what comes back: results built for a results page, versus content built for a context window. Other agentic search providers differ on quality, which only an eval on your own queries can settle."
+      />
+
+      <BottomLine
+        verdict="Buying an index still leaves you building the content layer. Buying agentic search buys the finished job, and against agentic peers we hand you the eval instead of a benchmark claim."
+        chips={[
+          'Links and snippets vs ranked content',
+          'Extract, Crawl, and Map included',
+          'No benchmark claims on this page',
+          'Run the eval on your own queries',
+        ]}
       />
 
       {/* Legacy search APIs */}
